@@ -12,7 +12,8 @@ class MainController extends AbstractController
      */
     public function index()
     {
-		$presentation = "Une petite prÃ©sentation du projet et de notre Ã©quipe";
+		$presentation = "Une petite présentation du projet et de notre équipe";
+		
 		
 		
         return $this->render('main/index.html.twig', [
