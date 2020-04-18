@@ -20,4 +20,31 @@ class MainController extends AbstractController
             'controller_name' => 'MainController', 'presentation' => $presentation,
         ]);
     }
+	
+	/**
+     * @Route("/ticket", name="openticket")
+     */
+    public function openticket()
+    {
+
+	
+		
+        return $this->render('main/ticket.html.twig', [
+
+        ]);
+    }
+	
+	
+	/**
+     * @Route("/admin", name="admin")
+     */
+    public function admin()
+    {
+
+	
+		
+        return $this->render('main/admin.html.twig', [
+
+        ]);
+    }	
 }
