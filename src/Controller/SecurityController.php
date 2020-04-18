@@ -22,7 +22,7 @@ class SecurityController extends AbstractController
         $form = $this->createForm(RegistrationType::class, $user);
         
         $form->handleRequest($request); //analyse la request
-        
+
         if($form->isSubmitted() && $form->isValid()) //si le form est envoyé:
         {
 			$hash = $encoder->encodePassword($user, $user->GetPassword());
@@ -50,7 +50,6 @@ class SecurityController extends AbstractController
      */
     public function logout()
     {
-        
     }
     
 }
