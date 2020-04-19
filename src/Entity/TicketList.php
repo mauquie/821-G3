@@ -41,6 +41,11 @@ class TicketList
      */
     private $result;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $tag;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -102,6 +107,18 @@ class TicketList
     public function setResult(string $result): self
     {
         $this->result = $result;
+
+        return $this;
+    }
+
+    public function getTag(): ?int
+    {
+        return $this->tag;
+    }
+
+    public function setTag(int $tag): self
+    {
+        $this->tag = $tag;
 
         return $this;
     }

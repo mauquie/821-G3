@@ -1,4 +1,14 @@
 {% if app.user.email == "admin@troubleshooting.com" %}
+
+{% set TicketEnCours = 0 %}
+
+{% for ticket in tickets %}
+	{% if ticket.status == "open" %}
+			{% set TicketEnCours = TicketEnCours + 1 %}
+	{% endif %}
+{% endfor %}
+				
+				
 <html lang="fr">
 
 <head>
@@ -267,14 +277,14 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Tasks</div>
+                      <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Taux de ticket restant</div>
                       <div class="row no-gutters align-items-center">
                         <div class="col-auto">
-                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ (TicketEnCours / TotalTicket)*100}}%</div>
                         </div>
                         <div class="col">
                           <div class="progress progress-sm mr-2">
-                            <div class="progress-bar bg-danger" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-danger" role="progressbar" style="width:{{ (TicketEnCours / TotalTicket)*100}}%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                           </div>
                         </div>
                       </div>
@@ -293,8 +303,8 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Pending Requests</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total ticket</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{TotalTicket}}</div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -310,8 +320,8 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Pending Requests</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Ticket en cours</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{TicketEnCours}}</div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -394,18 +404,25 @@
                 </div>
                 <div class="card-body">
 				
+				<div class="container">
+				{% for ticket in tickets %}
+					<div class="row">
+						<div class="col-md-3">
+							<p>{{ticket.title}}</p>
+						</div>
+						<div class="col-md-4">
+							<p>{{ticket.userRequest}}</p>
+						</div>
+						<div class="col-md-4">
+							<p>{{ticket.status}}</p>
 
+							<a href="/adminticket/{{ticket.tag}}" role="button" class="btn btn-success">Voir le ticket</a>
+						</div>
+					</div>
+					<hr>
+				{% endfor %}
+				</div>
 
-					<table class="tg" style="undefined;table-layout: fixed; width: 746px">
-					<colgroup>
-					{% for ticket in tickets %}
-					{{ ticket.title }}
-					{{ ticket.userRequest }}
-					{{ ticket.status }}
-					<br>
-					{% endfor %}
-					</colgroup>
-					</table>
 
                   <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on unDraw &rarr;</a>
                 </div>
