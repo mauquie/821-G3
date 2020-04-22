@@ -289,8 +289,26 @@ body{
 				{{ form_start(form) }}
 
 				{{ form_row(form.text, { 'attr': {'placeholder':'Ecrire un message...', 'class':'form-control'} }) }}
-				<button type="submit" class="btn btn-success">Envoyer le message</button>
+					<button type="submit" class="btn btn-success">Envoyer le message</button>
 				{{ form_end(form) }}
+				
+				
+				{% for ticketlist in ticketlists %}
+					{% if ticketlist.tag == tag %}
+						{% if ticketlist.status == "open" %}
+							{{ form_start(formTicketList) }}
+								{{ form_row(formTicketList.status, { 'attr': {'value':'close'} }) }}
+								<button type="submit" class="btn btn-danger">Fermer le ticket</button>
+							{{ form_end(formTicketList) }}
+						{% else %}
+						
+							{{ form_start(formTicketList) }}
+								{{ form_row(formTicketList.status, { 'attr': {'value':'open'} }) }}
+								<button type="submit" class="btn btn-warning">Ouvrir le ticket</button>
+							{{ form_end(formTicketList) }}
+						{% endif %}
+					{% endif %}
+				{% endfor %}
 					
               </div>
             </div>

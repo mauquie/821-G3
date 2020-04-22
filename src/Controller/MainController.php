@@ -9,6 +9,7 @@ use App\Form\TalkticketType;
 use App\Entity\TicketList;
 use App\Entity\Talkticket;
 use App\Entity\User;
+use App\Form\TicketStatusType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;  //ajout du request
 use Doctrine\Persistence\ObjectManager; //ajout du manager
@@ -76,6 +77,9 @@ class MainController extends AbstractController
 			$manager->flush();
             return $this->redirectToRoute('myticket');
         }
+		
+		
+		
 	
 		
         return $this->render('main/ticket.html.twig',[ 'form' => $form->createView() ]);
@@ -113,6 +117,7 @@ class MainController extends AbstractController
 
 		$verif = "";
 		$Talkticket = new Talkticket();	
+		$Ticket = new TicketList();
 		$opentickets = "";
 		$user = $this->getUser();
 		if ($user != NULL){
@@ -122,6 +127,11 @@ class MainController extends AbstractController
 		
         $repo = $this->getDoctrine()->getRepository(Talkticket::class);
 		$opentickets = $repo->findBy(array('name' => $mail, 'tag' => $tag));
+		
+		$repo2 = $this->getDoctrine()->getRepository(TicketList::class);
+        $ticketlists = $repo2->findBy(array('tag' => $tag));
+
+		
 		if (isset($opentickets[0])){
 		$verif = $opentickets[0]->getName();
 		}
@@ -135,6 +145,8 @@ class MainController extends AbstractController
 			$opentickets = $repo->findBy(array('tag' => $tag));
 			$form = $this->createForm(TalkticketType::class, $Talkticket);
 			$form->handleRequest($request);
+			$formTicketList = $this->createForm(TicketStatusType::class, $Ticket);
+            $formTicketList->handleRequest($request);
 	
 
 
@@ -152,9 +164,29 @@ class MainController extends AbstractController
 
 			return $this->redirect($request->getUri());
         }
+		
+		
+		
+		if($formTicketList->isSubmitted() && $formTicketList->isValid()) //si le form est envoyé:
+        {
+			
+			 $idTicket = $tag + 1;
+		
+			$entityManager = $this->getDoctrine()->getManager();
+			$Ticket = $entityManager->getRepository(TicketList::class)->find($idTicket);
+			
+			$status = $formTicketList["status"]->getData();
+			$Ticket->setStatus($status);
 
+			$entityManager->flush();
+
+
+			return $this->redirect($request->getUri());
+        }
 	
-	return $this->render('main/myticketID.html.twig',['opentickets' => $opentickets, 'form' => $form->createView()]);
+	
+	
+	return $this->render('main/myticketID.html.twig',['opentickets' => $opentickets, 'ticketlists' => $ticketlists , 'tag' => $tag, 'form' => $form->createView(), 'formTicketList' => $formTicketList->createView() ]);
 }
 		
 }
@@ -169,11 +201,10 @@ class MainController extends AbstractController
 		
 		$opentickets = "";
 		$user = $this->getUser();
-		$mail =  $user->getEmail();
-		$Talkticket = new Talkticket();
-		
-		if ($user != NULL){
 
+		$Talkticket = new Talkticket();
+		if ($user != NULL){
+		$mail =  $user->getEmail();
         $repo = $this->getDoctrine()->getRepository(Talkticket::class);
 		$opentickets = $repo->findBy(array('tag' => $tag));
 		}
@@ -181,7 +212,7 @@ class MainController extends AbstractController
 
         $form = $this->createForm(TalkticketType::class, $Talkticket);
         $form->handleRequest($request);
-
+		
 
 
         if($form->isSubmitted() && $form->isValid()) //si le form est envoyé:
@@ -191,7 +222,6 @@ class MainController extends AbstractController
 			$Talkticket->setName($mail);
 			$Talkticket->setTag($tag);
 
-				
 
             $manager->persist($Talkticket); //persiste l’info dans le temps
 			$manager->flush(); //envoie les info à la BDD
