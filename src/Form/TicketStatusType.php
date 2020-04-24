@@ -7,6 +7,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+
 
 class TicketStatusType extends AbstractType
 {
@@ -14,6 +16,11 @@ class TicketStatusType extends AbstractType
     {
         $builder
             ->add('status', HiddenType::class)
+			->add('result', ChoiceType::class, [
+			'choices'  => [
+				'Oui' => 'good',
+				'Non' => 'bad',
+			], 'label' => false])
         ;
     }
 

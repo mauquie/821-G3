@@ -245,6 +245,47 @@ body{
     -webkit-appearance: none;
     border-radius: 0;
 }
+
+.select-style {
+    padding: 0;
+    margin: 0;
+    border: 1px solid #ccc;
+    width: 120px;
+    border-radius: 3px;
+    overflow: hidden;
+    background-color: #fff;
+    background: #fff;
+    position: relative;
+}
+.select-style select {
+    padding: 5px 8px;
+    width: 130%;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+.select-style:after {
+    top: 50%;
+    left: 85%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(0, 0, 0, 0);
+    border-top-color: #000000;
+    border-width: 5px;
+    margin-top: -2px;
+    z-index: 100;
+}
+.select-style select:focus {
+    outline: none;
+}
 </style>
 
 
@@ -284,26 +325,31 @@ body{
 		{% endfor %}
 
 
-
               <div class="answer-add">
+	{% for ticketlist in ticketlists %}
+		{% if ticketlist.status == "open" %}
 				{{ form_start(form) }}
 
 				{{ form_row(form.text, { 'attr': {'placeholder':'Ecrire un message...', 'class':'form-control'} }) }}
 					<button type="submit" class="btn btn-success">Envoyer le message</button>
 				{{ form_end(form) }}
-				
+		{% endif %}
+	{% endfor %}
+	
 				
 				{% for ticketlist in ticketlists %}
 					{% if ticketlist.tag == tag %}
 						{% if ticketlist.status == "open" %}
 							{{ form_start(formTicketList) }}
 								{{ form_row(formTicketList.status, { 'attr': {'value':'close'} }) }}
+								<p>Êtes vous satisfaits ?</p>
+								{{ form_row(formTicketList.result) }}
 								<button type="submit" class="btn btn-danger">Fermer le ticket</button>
 							{{ form_end(formTicketList) }}
 						{% else %}
-						
 							{{ form_start(formTicketList) }}
-								{{ form_row(formTicketList.status, { 'attr': {'value':'open'} }) }}
+								{{ form_row(formTicketList.status, { 'attr': {'value':'open'} }) }}				
+								{{ form_row(formTicketList.result, {'attr':{'style':'display:none;', 'value':'none'} }) }}
 								<button type="submit" class="btn btn-warning">Ouvrir le ticket</button>
 							{{ form_end(formTicketList) }}
 						{% endif %}

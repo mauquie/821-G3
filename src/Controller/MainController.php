@@ -176,7 +176,9 @@ class MainController extends AbstractController
 			$Ticket = $entityManager->getRepository(TicketList::class)->find($idTicket);
 			
 			$status = $formTicketList["status"]->getData();
+			$result = $formTicketList["result"]->getData();
 			$Ticket->setStatus($status);
+			$Ticket->setResult($result);
 
 			$entityManager->flush();
 
