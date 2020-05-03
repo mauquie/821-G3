@@ -253,6 +253,10 @@ class MainController extends AbstractController
         $repo = $this->getDoctrine()->getRepository(TicketList::class);
 	    $tickets = $repo->FindAll();
 		
+		$satisfied = 70;
+		$discontent = 100 - $satisfied;
+		
+		
 		$last = $repo->findBy(array(), array('id' => 'desc'),1,0);
 		$TotalTicket = $last[0]->getId();
 
@@ -262,6 +266,6 @@ class MainController extends AbstractController
 		
 		
 		
-        return $this->render('main/admin.html.twig', ['tickets' => $tickets, 'TotalTicket' => $TotalTicket]);
+        return $this->render('main/admin.html.twig', ['tickets' => $tickets, 'TotalTicket' => $TotalTicket, 'satisfied' => $satisfied, 'discontent' => $discontent]);
     }	
 }
