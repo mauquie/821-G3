@@ -268,4 +268,90 @@ class MainController extends AbstractController
 		
         return $this->render('main/admin.html.twig', ['tickets' => $tickets, 'TotalTicket' => $TotalTicket, 'satisfied' => $satisfied, 'discontent' => $discontent]);
     }	
+	
+	
+	/**
+    * @Route("/serviceticket/{tag}", name="adminticket")
+    */
+    public function serviceticket($tag, Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder, SessionInterface $session)
+    {
+		
+		$opentickets = "";
+		$user = $this->getUser();
+
+		$Talkticket = new Talkticket();
+		if ($user != NULL){
+		$mail =  $user->getEmail();
+        $repo = $this->getDoctrine()->getRepository(Talkticket::class);
+		$opentickets = $repo->findBy(array('tag' => $tag));
+		}
+
+
+        $form = $this->createForm(TalkticketType::class, $Talkticket);
+        $form->handleRequest($request);
+		
+
+
+        if($form->isSubmitted() && $form->isValid()) //si le form est envoyé:
+        {
+			
+
+			$Talkticket->setName($mail);
+			$Talkticket->setTag($tag);
+
+
+            $manager->persist($Talkticket); //persiste l’info dans le temps
+			$manager->flush(); //envoie les info à la BDD
+
+			return $this->redirect($request->getUri());
+        }
+
+		
+		
+        return $this->render('main/serviceticket.html.twig',['opentickets' => $opentickets, 'form' => $form->createView() ]);
+    }
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/**
+     * @Route("/service", name="service")
+     */
+    public function service(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder, SessionInterface $session)
+    {
+		$opentickets = "";
+		$user = $this->getUser();
+		if ($user != NULL){
+		$mail =  $user->getEmail();
+		
+
+		
+		
+		$repo = $this->getDoctrine()->getRepository(TicketList::class);
+	   
+		$opentickets = $repo->findBy(array('user_request' => $mail));
+		}
+		$tickets = $repo->FindAll();
+		
+		
+		
+		$last = $repo->findBy(array(), array('id' => 'desc'),1,0);
+		$TotalTicket = $last[0]->getId();
+		
+
+
+		
+		
+		
+		
+        return $this->render('main/service.html.twig', ['tickets' => $tickets, 'TotalTicket' => $TotalTicket, 'opentickets' => $opentickets]);
+    }	
 }
+
