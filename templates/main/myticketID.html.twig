@@ -308,7 +308,7 @@ body{
 			<div class="chat-body">
 		{% for openticket in opentickets %}
 
-		{% if openticket.name == "admin@troubleshooting.com" %}
+		{% if openticket.name == "admin@troubleshooting.com" or openticket.name == "service@troubleshooting.com" %}
 				<div class="answer right">
 		{% else %}
 				<div class="answer left">
@@ -340,21 +340,17 @@ body{
 				{% for ticketlist in ticketlists %}
 					{% if ticketlist.tag == tag %}
 						{% if ticketlist.status == "open" %}
-							{{ form_start(formTicketList) }}
-								{{ form_row(formTicketList.status, { 'attr': {'value':'close'} }) }}
-								<p>Êtes vous satisfaits ?</p>
-								{{ form_row(formTicketList.result) }}
-								<button type="submit" class="btn btn-danger">Fermer le ticket</button>
-							{{ form_end(formTicketList) }}
+
 						{% else %}
-							{{ form_start(formTicketList) }}
-								{{ form_row(formTicketList.status, { 'attr': {'value':'open'} }) }}				
-								{{ form_row(formTicketList.result, {'attr':{'style':'display:none;', 'value':'none'} }) }}
-								<button type="submit" class="btn btn-warning">Ouvrir le ticket</button>
-							{{ form_end(formTicketList) }}
+							<p>votre ticket a été fermé, si vous souhaitez contacter de nouveau le support veiller <a href="/ticket">refaire un ticket<a></p>
 						{% endif %}
 					{% endif %}
-				{% endfor %}
+				{% endfor %}	
+				
+
+				
+				
+
 					
               </div>
             </div>

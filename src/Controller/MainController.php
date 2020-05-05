@@ -275,9 +275,11 @@ class MainController extends AbstractController
     */
     public function serviceticket($tag, Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder, SessionInterface $session)
     {
-		
+		$Ticket = new TicketList();
 		$opentickets = "";
 		$user = $this->getUser();
+		$repo2 = $this->getDoctrine()->getRepository(TicketList::class);
+        $ticketlists = $repo2->findBy(array('tag' => $tag));
 
 		$Talkticket = new Talkticket();
 		if ($user != NULL){
@@ -289,7 +291,8 @@ class MainController extends AbstractController
 
         $form = $this->createForm(TalkticketType::class, $Talkticket);
         $form->handleRequest($request);
-		
+		$formTicketList = $this->createForm(TicketStatusType::class, $Ticket);
+        $formTicketList->handleRequest($request);
 
 
         if($form->isSubmitted() && $form->isValid()) //si le form est envoyé:
@@ -306,9 +309,28 @@ class MainController extends AbstractController
 			return $this->redirect($request->getUri());
         }
 
+
+		if($formTicketList->isSubmitted() && $formTicketList->isValid()) //si le form est envoyé:
+        {
+			
+			 $idTicket = $tag + 1;
+		
+			$entityManager = $this->getDoctrine()->getManager();
+			$Ticket = $entityManager->getRepository(TicketList::class)->find($idTicket);
+			
+			$status = $formTicketList["status"]->getData();
+			$result = $formTicketList["result"]->getData();
+			$Ticket->setStatus($status);
+			$Ticket->setResult($result);
+
+			$entityManager->flush();
+
+
+			return $this->redirect($request->getUri());
+        }
 		
 		
-        return $this->render('main/serviceticket.html.twig',['opentickets' => $opentickets, 'form' => $form->createView() ]);
+        return $this->render('main/serviceticket.html.twig',['opentickets' => $opentickets, 'ticketlists' => $ticketlists, 'tag' => $tag, 'form' => $form->createView(),  'formTicketList' => $formTicketList->createView() ]);
     }
 
 	
@@ -326,6 +348,7 @@ class MainController extends AbstractController
      */
     public function service(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder, SessionInterface $session)
     {
+
 		$opentickets = "";
 		$user = $this->getUser();
 		if ($user != NULL){

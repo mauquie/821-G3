@@ -17,6 +17,7 @@ return [
         '/ticket' => [[['_route' => 'openticket', '_controller' => 'App\\Controller\\MainController::openticket'], null, null, null, false, false, null]],
         '/myticket' => [[['_route' => 'myticket', '_controller' => 'App\\Controller\\MainController::myticket'], null, null, null, false, false, null]],
         '/admin' => [[['_route' => 'admin', '_controller' => 'App\\Controller\\MainController::admin'], null, null, null, false, false, null]],
+        '/service' => [[['_route' => 'service', '_controller' => 'App\\Controller\\MainController::service'], null, null, null, false, false, null]],
         '/sddd' => [[['_route' => 'sddd', '_controller' => 'App\\Controller\\SdddController::index'], null, null, null, false, false, null]],
         '/inscription' => [[['_route' => 'security_registration', '_controller' => 'App\\Controller\\SecurityController::registration'], null, null, null, false, false, null]],
         '/connexion' => [[['_route' => 'security_login', '_controller' => 'App\\Controller\\SecurityController::login'], null, null, null, false, false, null]],
@@ -40,7 +41,7 @@ return [
                     .')'
                 .')'
                 .'|/myticket/([^/]++)(*:187)'
-                .'|/adminticket/([^/]++)(*:216)'
+                .'|/serviceticket/([^/]++)(*:218)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -52,8 +53,8 @@ return [
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
         187 => [[['_route' => 'myticketID', '_controller' => 'App\\Controller\\MainController::myticketID'], ['tag'], null, null, false, true, null]],
-        216 => [
-            [['_route' => 'adminticket', '_controller' => 'App\\Controller\\MainController::adminticket'], ['tag'], null, null, false, true, null],
+        218 => [
+            [['_route' => 'adminticket', '_controller' => 'App\\Controller\\MainController::serviceticket'], ['tag'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

@@ -166,6 +166,51 @@ class __TwigTemplate_8835060e13cb395b9786537c27ffbd3a3144d7c1921b20f43afc2ea34a7
                 <div class=\"col-md-10\" data-aos=\"fade-up\">
                   <h2 class=\"heading mb-5\">Bienvenue sur troubleshooting</h2>
                   <p><a href=\"#section-reservation\" class=\"smoothscroll btn btn-outline-white px-5 py-3\">OUvrir un ticket</a></p>
+\t\t\t\t  \t<a class=\"btn btn-success\" href=\"/connexion\">Connexion</a>
+\t\t\t\t\t
+\t\t\t\t\t";
+        // line 80
+        if ( !(null === twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 80, $this->source); })()), "user", [], "any", false, false, false, 80))) {
+            // line 81
+            echo "\t\t\t\t\t<a class=\"btn btn-secondary\">Inscription</a>
+\t\t\t\t\t<a class=\"btn btn-danger\" href=\"/deconnexion\">Deconnexion</a>
+\t\t\t\t\t
+\t\t\t\t\t";
+            // line 84
+            if (0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 84, $this->source); })()), "user", [], "any", false, false, false, 84), "email", [], "any", false, false, false, 84), "admin@troubleshooting.com")) {
+                // line 85
+                echo "\t\t\t\t\t<a class=\"btn btn-info\" href=\"/admin\">Admin</a>
+\t\t\t\t\t";
+            } else {
+                // line 87
+                echo "\t\t\t\t\t<a class=\"btn btn-secondary\">Admin</a>
+\t\t\t\t\t";
+            }
+            // line 89
+            echo "\t\t\t\t\t
+\t\t\t\t\t";
+            // line 90
+            if (0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 90, $this->source); })()), "user", [], "any", false, false, false, 90), "email", [], "any", false, false, false, 90), "client@troubleshooting.com")) {
+                // line 91
+                echo "\t\t\t\t\t<a class=\"btn btn-info\" href=\"/myticket\">Tickets</a>
+\t\t\t\t\t";
+            } else {
+                // line 93
+                echo "\t\t\t\t\t<a class=\"btn btn-secondary\">Tickets</a>
+\t\t\t\t\t";
+            }
+            // line 95
+            echo "\t\t\t\t\t
+\t\t\t\t\t";
+        } else {
+            // line 97
+            echo "\t\t\t\t\t<a class=\"btn btn-warning\" href=\"/inscription\">Inscription</a>
+\t\t\t\t\t<a class=\"btn btn-secondary\" >Deconnexion</a>
+\t\t\t\t\t";
+        }
+        // line 100
+        echo "\t\t\t\t
+\t\t\t\t\t
                 </div>
               </div>
             </div>
@@ -780,51 +825,51 @@ class __TwigTemplate_8835060e13cb395b9786537c27ffbd3a3144d7c1921b20f43afc2ea34a7
     <!-- <div id=\"loader\" class=\"show fullscreen\"><svg class=\"circular\" width=\"48px\" height=\"48px\"><circle class=\"path-bg\" cx=\"24\" cy=\"24\" r=\"22\" fill=\"none\" stroke-width=\"4\" stroke=\"#eeeeee\"/><circle class=\"path\" cx=\"24\" cy=\"24\" r=\"22\" fill=\"none\" stroke-width=\"4\" stroke-miterlimit=\"10\" stroke=\"#ff7a5c\"/></svg></div> -->
 
     <script src=\"";
-        // line 691
-        echo twig_escape_filter($this->env, (isset($context["racine"]) || array_key_exists("racine", $context) ? $context["racine"] : (function () { throw new RuntimeError('Variable "racine" does not exist.', 691, $this->source); })()), "html", null, true);
+        // line 715
+        echo twig_escape_filter($this->env, (isset($context["racine"]) || array_key_exists("racine", $context) ? $context["racine"] : (function () { throw new RuntimeError('Variable "racine" does not exist.', 715, $this->source); })()), "html", null, true);
         echo "js/jquery-3.2.1.min.js\"></script>
     <script src=\"";
-        // line 692
-        echo twig_escape_filter($this->env, (isset($context["racine"]) || array_key_exists("racine", $context) ? $context["racine"] : (function () { throw new RuntimeError('Variable "racine" does not exist.', 692, $this->source); })()), "html", null, true);
+        // line 716
+        echo twig_escape_filter($this->env, (isset($context["racine"]) || array_key_exists("racine", $context) ? $context["racine"] : (function () { throw new RuntimeError('Variable "racine" does not exist.', 716, $this->source); })()), "html", null, true);
         echo "js/jquery-migrate-3.0.1.min.js\"></script>
     <script src=\"";
-        // line 693
-        echo twig_escape_filter($this->env, (isset($context["racine"]) || array_key_exists("racine", $context) ? $context["racine"] : (function () { throw new RuntimeError('Variable "racine" does not exist.', 693, $this->source); })()), "html", null, true);
+        // line 717
+        echo twig_escape_filter($this->env, (isset($context["racine"]) || array_key_exists("racine", $context) ? $context["racine"] : (function () { throw new RuntimeError('Variable "racine" does not exist.', 717, $this->source); })()), "html", null, true);
         echo "js/popper.min.js\"></script>
     <script src=\"";
-        // line 694
-        echo twig_escape_filter($this->env, (isset($context["racine"]) || array_key_exists("racine", $context) ? $context["racine"] : (function () { throw new RuntimeError('Variable "racine" does not exist.', 694, $this->source); })()), "html", null, true);
+        // line 718
+        echo twig_escape_filter($this->env, (isset($context["racine"]) || array_key_exists("racine", $context) ? $context["racine"] : (function () { throw new RuntimeError('Variable "racine" does not exist.', 718, $this->source); })()), "html", null, true);
         echo "js/bootstrap.min.js\"></script>
     <script src=\"";
-        // line 695
-        echo twig_escape_filter($this->env, (isset($context["racine"]) || array_key_exists("racine", $context) ? $context["racine"] : (function () { throw new RuntimeError('Variable "racine" does not exist.', 695, $this->source); })()), "html", null, true);
+        // line 719
+        echo twig_escape_filter($this->env, (isset($context["racine"]) || array_key_exists("racine", $context) ? $context["racine"] : (function () { throw new RuntimeError('Variable "racine" does not exist.', 719, $this->source); })()), "html", null, true);
         echo "js/owl.carousel.min.js\"></script>
     <script src=\"";
-        // line 696
-        echo twig_escape_filter($this->env, (isset($context["racine"]) || array_key_exists("racine", $context) ? $context["racine"] : (function () { throw new RuntimeError('Variable "racine" does not exist.', 696, $this->source); })()), "html", null, true);
+        // line 720
+        echo twig_escape_filter($this->env, (isset($context["racine"]) || array_key_exists("racine", $context) ? $context["racine"] : (function () { throw new RuntimeError('Variable "racine" does not exist.', 720, $this->source); })()), "html", null, true);
         echo "js/jquery.waypoints.min.js\"></script>
 
     <script src=\"";
-        // line 698
-        echo twig_escape_filter($this->env, (isset($context["racine"]) || array_key_exists("racine", $context) ? $context["racine"] : (function () { throw new RuntimeError('Variable "racine" does not exist.', 698, $this->source); })()), "html", null, true);
+        // line 722
+        echo twig_escape_filter($this->env, (isset($context["racine"]) || array_key_exists("racine", $context) ? $context["racine"] : (function () { throw new RuntimeError('Variable "racine" does not exist.', 722, $this->source); })()), "html", null, true);
         echo "js/bootstrap-datepicker.js\"></script>
     <script src=\"";
-        // line 699
-        echo twig_escape_filter($this->env, (isset($context["racine"]) || array_key_exists("racine", $context) ? $context["racine"] : (function () { throw new RuntimeError('Variable "racine" does not exist.', 699, $this->source); })()), "html", null, true);
+        // line 723
+        echo twig_escape_filter($this->env, (isset($context["racine"]) || array_key_exists("racine", $context) ? $context["racine"] : (function () { throw new RuntimeError('Variable "racine" does not exist.', 723, $this->source); })()), "html", null, true);
         echo "js/jquery.timepicker.min.js\"></script>
     <script src=\"";
-        // line 700
-        echo twig_escape_filter($this->env, (isset($context["racine"]) || array_key_exists("racine", $context) ? $context["racine"] : (function () { throw new RuntimeError('Variable "racine" does not exist.', 700, $this->source); })()), "html", null, true);
+        // line 724
+        echo twig_escape_filter($this->env, (isset($context["racine"]) || array_key_exists("racine", $context) ? $context["racine"] : (function () { throw new RuntimeError('Variable "racine" does not exist.', 724, $this->source); })()), "html", null, true);
         echo "js/jquery.stellar.min.js\"></script>
 
     <script src=\"";
-        // line 702
-        echo twig_escape_filter($this->env, (isset($context["racine"]) || array_key_exists("racine", $context) ? $context["racine"] : (function () { throw new RuntimeError('Variable "racine" does not exist.', 702, $this->source); })()), "html", null, true);
+        // line 726
+        echo twig_escape_filter($this->env, (isset($context["racine"]) || array_key_exists("racine", $context) ? $context["racine"] : (function () { throw new RuntimeError('Variable "racine" does not exist.', 726, $this->source); })()), "html", null, true);
         echo "js/jquery.easing.1.3.js\"></script>    
 
     <script src=\"";
-        // line 704
-        echo twig_escape_filter($this->env, (isset($context["racine"]) || array_key_exists("racine", $context) ? $context["racine"] : (function () { throw new RuntimeError('Variable "racine" does not exist.', 704, $this->source); })()), "html", null, true);
+        // line 728
+        echo twig_escape_filter($this->env, (isset($context["racine"]) || array_key_exists("racine", $context) ? $context["racine"] : (function () { throw new RuntimeError('Variable "racine" does not exist.', 728, $this->source); })()), "html", null, true);
         echo "js/aos.js\"></script>
     
 
@@ -832,12 +877,12 @@ class __TwigTemplate_8835060e13cb395b9786537c27ffbd3a3144d7c1921b20f43afc2ea34a7
 
     <script src=\"js/main.js\"></script>
         ";
-        // line 710
+        // line 734
         $this->displayBlock('body', $context, $blocks);
-        // line 711
+        // line 735
         echo "        ";
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 712
+        // line 736
         echo "    </body>
 </html>
 ";
@@ -886,7 +931,7 @@ class __TwigTemplate_8835060e13cb395b9786537c27ffbd3a3144d7c1921b20f43afc2ea34a7
 
     }
 
-    // line 710
+    // line 734
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -904,7 +949,7 @@ class __TwigTemplate_8835060e13cb395b9786537c27ffbd3a3144d7c1921b20f43afc2ea34a7
 
     }
 
-    // line 711
+    // line 735
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -934,7 +979,7 @@ class __TwigTemplate_8835060e13cb395b9786537c27ffbd3a3144d7c1921b20f43afc2ea34a7
 
     public function getDebugInfo()
     {
-        return array (  908 => 711,  890 => 710,  872 => 6,  853 => 5,  841 => 712,  838 => 711,  836 => 710,  827 => 704,  822 => 702,  817 => 700,  813 => 699,  809 => 698,  804 => 696,  800 => 695,  796 => 694,  792 => 693,  788 => 692,  784 => 691,  162 => 72,  119 => 32,  113 => 29,  108 => 27,  104 => 26,  99 => 24,  95 => 23,  90 => 21,  86 => 20,  81 => 18,  77 => 17,  73 => 16,  65 => 10,  63 => 9,  59 => 7,  57 => 6,  53 => 5,  47 => 1,);
+        return array (  953 => 735,  935 => 734,  917 => 6,  898 => 5,  886 => 736,  883 => 735,  881 => 734,  872 => 728,  867 => 726,  862 => 724,  858 => 723,  854 => 722,  849 => 720,  845 => 719,  841 => 718,  837 => 717,  833 => 716,  829 => 715,  212 => 100,  207 => 97,  203 => 95,  199 => 93,  195 => 91,  193 => 90,  190 => 89,  186 => 87,  182 => 85,  180 => 84,  175 => 81,  173 => 80,  162 => 72,  119 => 32,  113 => 29,  108 => 27,  104 => 26,  99 => 24,  95 => 23,  90 => 21,  86 => 20,  81 => 18,  77 => 17,  73 => 16,  65 => 10,  63 => 9,  59 => 7,  57 => 6,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -1016,6 +1061,30 @@ class __TwigTemplate_8835060e13cb395b9786537c27ffbd3a3144d7c1921b20f43afc2ea34a7
                 <div class=\"col-md-10\" data-aos=\"fade-up\">
                   <h2 class=\"heading mb-5\">Bienvenue sur troubleshooting</h2>
                   <p><a href=\"#section-reservation\" class=\"smoothscroll btn btn-outline-white px-5 py-3\">OUvrir un ticket</a></p>
+\t\t\t\t  \t<a class=\"btn btn-success\" href=\"/connexion\">Connexion</a>
+\t\t\t\t\t
+\t\t\t\t\t{% if app.user is not null %}
+\t\t\t\t\t<a class=\"btn btn-secondary\">Inscription</a>
+\t\t\t\t\t<a class=\"btn btn-danger\" href=\"/deconnexion\">Deconnexion</a>
+\t\t\t\t\t
+\t\t\t\t\t{% if app.user.email == \"admin@troubleshooting.com\" %}
+\t\t\t\t\t<a class=\"btn btn-info\" href=\"/admin\">Admin</a>
+\t\t\t\t\t{% else %}
+\t\t\t\t\t<a class=\"btn btn-secondary\">Admin</a>
+\t\t\t\t\t{% endif %}
+\t\t\t\t\t
+\t\t\t\t\t{% if app.user.email == \"client@troubleshooting.com\" %}
+\t\t\t\t\t<a class=\"btn btn-info\" href=\"/myticket\">Tickets</a>
+\t\t\t\t\t{% else %}
+\t\t\t\t\t<a class=\"btn btn-secondary\">Tickets</a>
+\t\t\t\t\t{% endif %}
+\t\t\t\t\t
+\t\t\t\t\t{% else %}
+\t\t\t\t\t<a class=\"btn btn-warning\" href=\"/inscription\">Inscription</a>
+\t\t\t\t\t<a class=\"btn btn-secondary\" >Deconnexion</a>
+\t\t\t\t\t{% endif %}
+\t\t\t\t
+\t\t\t\t\t
                 </div>
               </div>
             </div>

@@ -92,88 +92,6 @@ class __TwigTemplate_cf2f0d06cf7258dc86af9529e21ac182734118af76298cf1d4119e7c28e
 
 
 
-        <div class=\"section bg-white services-section\" data-aos=\"fade-up\">
-          <div class=\"container\">
-            <div class=\"row section-heading justify-content-center mb-5\">
-              <div class=\"col-md-8 text-center\">
-                <h2 class=\"heading mb-3\">Qui sommes-nous</h2>
-                <p class=\"sub-heading mb-5\">";
-        // line 18
-        echo twig_escape_filter($this->env, (isset($context["presentation"]) || array_key_exists("presentation", $context) ? $context["presentation"] : (function () { throw new RuntimeError('Variable "presentation" does not exist.', 18, $this->source); })()), "html", null, true);
-        echo "</p>  
-              </div>
-            </div>
-            <div class=\"row\">
-              <div class=\"col-m mb-5d-6 col-lg-4\" data-aos=\"fade-up\">
-                <div class=\"media feature-icon d-block text-center\">
-                  <div class=\"icon\">
-                    <span class=\"\"></span>
-                  </div>
-                  <div class=\"media-body\">
-                    <h3>Le projet</h3>
-                    <p>Créer une application Web dédition de tickets déintervention pour du dépannage</p>
-                  </div>
-                </div>
-              </div>
-              <div class=\"col-md-6 col-lg-4 mb-5\" data-aos=\"fade-up\" data-aos-delay=\"100\">
-                <div class=\"media feature-icon d-block text-center\">
-                  <div class=\"icon\">
-                    <span class=\"\"></span>
-                  </div>
-                  <div class=\"media-body\">
-                    <h3>Principe</h3>
-                    <p>Des utilisateurs remplissent en ligne des tickets de demande d&apos;intervention.</p>
-                  </div>
-                </div>
-              </div>
-              <div class=\"col-md-6 col-lg-4 mb-5\" data-aos=\"fade-up\" data-aos-delay=\"300\">
-                <div class=\"media feature-icon d-block text-center\">
-                  <div class=\"icon\">
-                    <span class=\"\"></span>
-                  </div>
-                  <div class=\"media-body\">
-                    <h3>Membre : Nidhal Amri</h3>
-                    <p>Venu de pro, il est pr&ecirc;t &agrave; en d&eacute;coudre pour aider &agrave; r&eacute;aliser ce projet</p>
-                  </div>
-                </div>
-              </div>
-              <div class=\"col-md-6 col-lg-4 mb-5\" data-aos=\"fade-up\" data-aos-delay=\"500\">
-                <div class=\"media feature-icon d-block text-center\">
-                  <div class=\"icon\">
-                    <span class=\"\"></span>
-                  </div>
-                  <div class=\"media-body\">
-                    <h3>Membre : Hugo Garoste</h3>
-                    <p>Ne l&acirc;che jamais rien pour parvenir &agrave; son objectif</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class=\"col-md-6 col-lg-4 mb-5\" data-aos=\"fade-up\" data-aos-delay=\"300\">
-                <div class=\"media feature-icon d-block text-center\">
-                  <div class=\"icon\">
-                    <span class=\"\"></span>
-                  </div>
-                  <div class=\"media-body\">
-                    <h3>Membre : Hugo Gilles</h3>
-                    <p>Toujours motivateur, il fera tout pour avoir le meilleur site possible</p>
-                  </div>
-                </div>
-              </div>
-              <div class=\"col-md-6 col-lg-4 mb-5\" data-aos=\"fade-up\" data-aos-delay=\"500\">
-                <div class=\"media feature-icon d-block text-center\">
-                  <div class=\"icon\">
-                    <span class=\"\"></span>
-                  </div>
-                  <div class=\"media-body\">
-                    <h3>Membre : Esteban Pascual</h3>
-                    <p>Indispensable ! Un vrai cerveau, il guidera l&apos;&eacute;quipe vers son but</p>
-                  </div>
-                </div>
-              </div>
-\t\t\t</div>
-            </div>
-          </div>
 
 ";
         
@@ -196,7 +114,7 @@ class __TwigTemplate_cf2f0d06cf7258dc86af9529e21ac182734118af76298cf1d4119e7c28e
 
     public function getDebugInfo()
     {
-        return array (  102 => 18,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -213,85 +131,6 @@ class __TwigTemplate_cf2f0d06cf7258dc86af9529e21ac182734118af76298cf1d4119e7c28e
 
 
 
-        <div class=\"section bg-white services-section\" data-aos=\"fade-up\">
-          <div class=\"container\">
-            <div class=\"row section-heading justify-content-center mb-5\">
-              <div class=\"col-md-8 text-center\">
-                <h2 class=\"heading mb-3\">Qui sommes-nous</h2>
-                <p class=\"sub-heading mb-5\">{{presentation}}</p>  
-              </div>
-            </div>
-            <div class=\"row\">
-              <div class=\"col-m mb-5d-6 col-lg-4\" data-aos=\"fade-up\">
-                <div class=\"media feature-icon d-block text-center\">
-                  <div class=\"icon\">
-                    <span class=\"\"></span>
-                  </div>
-                  <div class=\"media-body\">
-                    <h3>Le projet</h3>
-                    <p>Créer une application Web dédition de tickets déintervention pour du dépannage</p>
-                  </div>
-                </div>
-              </div>
-              <div class=\"col-md-6 col-lg-4 mb-5\" data-aos=\"fade-up\" data-aos-delay=\"100\">
-                <div class=\"media feature-icon d-block text-center\">
-                  <div class=\"icon\">
-                    <span class=\"\"></span>
-                  </div>
-                  <div class=\"media-body\">
-                    <h3>Principe</h3>
-                    <p>Des utilisateurs remplissent en ligne des tickets de demande d&apos;intervention.</p>
-                  </div>
-                </div>
-              </div>
-              <div class=\"col-md-6 col-lg-4 mb-5\" data-aos=\"fade-up\" data-aos-delay=\"300\">
-                <div class=\"media feature-icon d-block text-center\">
-                  <div class=\"icon\">
-                    <span class=\"\"></span>
-                  </div>
-                  <div class=\"media-body\">
-                    <h3>Membre : Nidhal Amri</h3>
-                    <p>Venu de pro, il est pr&ecirc;t &agrave; en d&eacute;coudre pour aider &agrave; r&eacute;aliser ce projet</p>
-                  </div>
-                </div>
-              </div>
-              <div class=\"col-md-6 col-lg-4 mb-5\" data-aos=\"fade-up\" data-aos-delay=\"500\">
-                <div class=\"media feature-icon d-block text-center\">
-                  <div class=\"icon\">
-                    <span class=\"\"></span>
-                  </div>
-                  <div class=\"media-body\">
-                    <h3>Membre : Hugo Garoste</h3>
-                    <p>Ne l&acirc;che jamais rien pour parvenir &agrave; son objectif</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class=\"col-md-6 col-lg-4 mb-5\" data-aos=\"fade-up\" data-aos-delay=\"300\">
-                <div class=\"media feature-icon d-block text-center\">
-                  <div class=\"icon\">
-                    <span class=\"\"></span>
-                  </div>
-                  <div class=\"media-body\">
-                    <h3>Membre : Hugo Gilles</h3>
-                    <p>Toujours motivateur, il fera tout pour avoir le meilleur site possible</p>
-                  </div>
-                </div>
-              </div>
-              <div class=\"col-md-6 col-lg-4 mb-5\" data-aos=\"fade-up\" data-aos-delay=\"500\">
-                <div class=\"media feature-icon d-block text-center\">
-                  <div class=\"icon\">
-                    <span class=\"\"></span>
-                  </div>
-                  <div class=\"media-body\">
-                    <h3>Membre : Esteban Pascual</h3>
-                    <p>Indispensable ! Un vrai cerveau, il guidera l&apos;&eacute;quipe vers son but</p>
-                  </div>
-                </div>
-              </div>
-\t\t\t</div>
-            </div>
-          </div>
 
 {% endblock %}
 ", "main/index.html.twig", "C:\\Users\\moi\\Documents\\Symfony\\troubleshooting\\troubleshooting\\templates\\main\\index.html.twig");

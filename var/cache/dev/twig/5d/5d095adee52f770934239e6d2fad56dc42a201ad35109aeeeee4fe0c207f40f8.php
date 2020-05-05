@@ -100,31 +100,33 @@ class __TwigTemplate_635bb63bc224c4764acbeb7bb09a51e9192adcdf256087d5e2c4f891ea7
 
 </style>
 
+<a class=\"btn btn-warning\" href=\"/ticket\">Ouvrir un Ticket</a>
+
 
 <div class=\"container\">
 ";
-        // line 23
+        // line 25
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["opentickets"]) || array_key_exists("opentickets", $context) ? $context["opentickets"] : (function () { throw new RuntimeError('Variable "opentickets" does not exist.', 23, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["opentickets"]) || array_key_exists("opentickets", $context) ? $context["opentickets"] : (function () { throw new RuntimeError('Variable "opentickets" does not exist.', 25, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["openticket"]) {
-            // line 24
+            // line 26
             echo "    <div class=\"row\">
         <div class=\"col-md-3\">
 \t\t\t<p>";
-            // line 26
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["openticket"], "title", [], "any", false, false, false, 26), "html", null, true);
+            // line 28
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["openticket"], "title", [], "any", false, false, false, 28), "html", null, true);
             echo "</p>
 \t\t</div>
         <div class=\"col-md-4\">
 \t\t\t<p>";
-            // line 29
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["openticket"], "status", [], "any", false, false, false, 29), "html", null, true);
+            // line 31
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["openticket"], "status", [], "any", false, false, false, 31), "html", null, true);
             echo "</p>
 \t\t</div>
         <div class=\"col-md-4\">
 \t\t\t<a href=\"/myticket/";
-            // line 32
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["openticket"], "tag", [], "any", false, false, false, 32), "html", null, true);
+            // line 34
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["openticket"], "tag", [], "any", false, false, false, 34), "html", null, true);
             echo "\" role=\"button\" class=\"btn btn-success\">Voir le ticket</a>
 \t\t</div>
     </div>
@@ -133,7 +135,7 @@ class __TwigTemplate_635bb63bc224c4764acbeb7bb09a51e9192adcdf256087d5e2c4f891ea7
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['openticket'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 36
+        // line 38
         echo "</div>
 
 
@@ -159,7 +161,7 @@ class __TwigTemplate_635bb63bc224c4764acbeb7bb09a51e9192adcdf256087d5e2c4f891ea7
 
     public function getDebugInfo()
     {
-        return array (  137 => 36,  127 => 32,  121 => 29,  115 => 26,  111 => 24,  107 => 23,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  139 => 38,  129 => 34,  123 => 31,  117 => 28,  113 => 26,  109 => 25,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -183,6 +185,8 @@ class __TwigTemplate_635bb63bc224c4764acbeb7bb09a51e9192adcdf256087d5e2c4f891ea7
 }
 
 </style>
+
+<a class=\"btn btn-warning\" href=\"/ticket\">Ouvrir un Ticket</a>
 
 
 <div class=\"container\">

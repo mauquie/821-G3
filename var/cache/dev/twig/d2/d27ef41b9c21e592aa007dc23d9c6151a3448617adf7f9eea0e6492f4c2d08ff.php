@@ -400,7 +400,7 @@ body{
                 echo "
 \t\t";
                 // line 311
-                if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["openticket"], "name", [], "any", false, false, false, 311), "admin@troubleshooting.com")) {
+                if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["openticket"], "name", [], "any", false, false, false, 311), "admin@troubleshooting.com") || 0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["openticket"], "name", [], "any", false, false, false, 311), "service@troubleshooting.com"))) {
                     // line 312
                     echo "\t\t\t\t<div class=\"answer right\">
 \t\t";
@@ -479,55 +479,29 @@ body{
                     echo "\t\t\t\t\t\t";
                     if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["ticketlist"], "status", [], "any", false, false, false, 342), "open")) {
                         // line 343
-                        echo "\t\t\t\t\t\t\t";
-                        echo                         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formTicketList"]) || array_key_exists("formTicketList", $context) ? $context["formTicketList"] : (function () { throw new RuntimeError('Variable "formTicketList" does not exist.', 343, $this->source); })()), 'form_start');
-                        echo "
-\t\t\t\t\t\t\t\t";
-                        // line 344
-                        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["formTicketList"]) || array_key_exists("formTicketList", $context) ? $context["formTicketList"] : (function () { throw new RuntimeError('Variable "formTicketList" does not exist.', 344, $this->source); })()), "status", [], "any", false, false, false, 344), 'row', ["attr" => ["value" => "close"]]);
-                        echo "
-\t\t\t\t\t\t\t\t<p>Êtes vous satisfaits ?</p>
-\t\t\t\t\t\t\t\t";
-                        // line 346
-                        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["formTicketList"]) || array_key_exists("formTicketList", $context) ? $context["formTicketList"] : (function () { throw new RuntimeError('Variable "formTicketList" does not exist.', 346, $this->source); })()), "result", [], "any", false, false, false, 346), 'row');
-                        echo "
-\t\t\t\t\t\t\t\t<button type=\"submit\" class=\"btn btn-danger\">Fermer le ticket</button>
-\t\t\t\t\t\t\t";
-                        // line 348
-                        echo                         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formTicketList"]) || array_key_exists("formTicketList", $context) ? $context["formTicketList"] : (function () { throw new RuntimeError('Variable "formTicketList" does not exist.', 348, $this->source); })()), 'form_end');
                         echo "
 \t\t\t\t\t\t";
                     } else {
-                        // line 350
-                        echo "\t\t\t\t\t\t\t";
-                        echo                         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formTicketList"]) || array_key_exists("formTicketList", $context) ? $context["formTicketList"] : (function () { throw new RuntimeError('Variable "formTicketList" does not exist.', 350, $this->source); })()), 'form_start');
-                        echo "
-\t\t\t\t\t\t\t\t";
-                        // line 351
-                        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["formTicketList"]) || array_key_exists("formTicketList", $context) ? $context["formTicketList"] : (function () { throw new RuntimeError('Variable "formTicketList" does not exist.', 351, $this->source); })()), "status", [], "any", false, false, false, 351), 'row', ["attr" => ["value" => "open"]]);
-                        echo "\t\t\t\t
-\t\t\t\t\t\t\t\t";
-                        // line 352
-                        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["formTicketList"]) || array_key_exists("formTicketList", $context) ? $context["formTicketList"] : (function () { throw new RuntimeError('Variable "formTicketList" does not exist.', 352, $this->source); })()), "result", [], "any", false, false, false, 352), 'row', ["attr" => ["style" => "display:none;", "value" => "none"]]);
-                        echo "
-\t\t\t\t\t\t\t\t<button type=\"submit\" class=\"btn btn-warning\">Ouvrir le ticket</button>
-\t\t\t\t\t\t\t";
-                        // line 354
-                        echo                         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formTicketList"]) || array_key_exists("formTicketList", $context) ? $context["formTicketList"] : (function () { throw new RuntimeError('Variable "formTicketList" does not exist.', 354, $this->source); })()), 'form_end');
-                        echo "
+                        // line 345
+                        echo "\t\t\t\t\t\t\t<p>votre ticket a été fermé, si vous souhaitez contacter de nouveau le support veiller <a href=\"/ticket\">refaire un ticket<a></p>
 \t\t\t\t\t\t";
                     }
-                    // line 356
+                    // line 347
                     echo "\t\t\t\t\t";
                 }
-                // line 357
+                // line 348
                 echo "\t\t\t\t";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['ticketlist'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 358
-            echo "\t\t\t\t\t
+            echo "\t
+\t\t\t\t
+
+\t\t\t\t
+\t\t\t\t
+
+\t\t\t\t\t
               </div>
             </div>
           </div>
@@ -573,7 +547,7 @@ body{
 
     public function getDebugInfo()
     {
-        return array (  530 => 358,  524 => 357,  521 => 356,  516 => 354,  511 => 352,  507 => 351,  502 => 350,  497 => 348,  492 => 346,  487 => 344,  482 => 343,  479 => 342,  476 => 341,  472 => 340,  468 => 338,  462 => 337,  457 => 335,  452 => 333,  446 => 331,  443 => 330,  439 => 329,  434 => 326,  424 => 322,  419 => 320,  413 => 316,  409 => 314,  405 => 312,  403 => 311,  400 => 310,  396 => 309,  387 => 302,  385 => 301,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  493 => 348,  490 => 347,  486 => 345,  482 => 343,  479 => 342,  476 => 341,  472 => 340,  468 => 338,  462 => 337,  457 => 335,  452 => 333,  446 => 331,  443 => 330,  439 => 329,  434 => 326,  424 => 322,  419 => 320,  413 => 316,  409 => 314,  405 => 312,  403 => 311,  400 => 310,  396 => 309,  387 => 302,  385 => 301,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -888,7 +862,7 @@ body{
 \t\t\t<div class=\"chat-body\">
 \t\t{% for openticket in opentickets %}
 
-\t\t{% if openticket.name == \"admin@troubleshooting.com\" %}
+\t\t{% if openticket.name == \"admin@troubleshooting.com\" or openticket.name == \"service@troubleshooting.com\" %}
 \t\t\t\t<div class=\"answer right\">
 \t\t{% else %}
 \t\t\t\t<div class=\"answer left\">
@@ -920,21 +894,17 @@ body{
 \t\t\t\t{% for ticketlist in ticketlists %}
 \t\t\t\t\t{% if ticketlist.tag == tag %}
 \t\t\t\t\t\t{% if ticketlist.status == \"open\" %}
-\t\t\t\t\t\t\t{{ form_start(formTicketList) }}
-\t\t\t\t\t\t\t\t{{ form_row(formTicketList.status, { 'attr': {'value':'close'} }) }}
-\t\t\t\t\t\t\t\t<p>Êtes vous satisfaits ?</p>
-\t\t\t\t\t\t\t\t{{ form_row(formTicketList.result) }}
-\t\t\t\t\t\t\t\t<button type=\"submit\" class=\"btn btn-danger\">Fermer le ticket</button>
-\t\t\t\t\t\t\t{{ form_end(formTicketList) }}
+
 \t\t\t\t\t\t{% else %}
-\t\t\t\t\t\t\t{{ form_start(formTicketList) }}
-\t\t\t\t\t\t\t\t{{ form_row(formTicketList.status, { 'attr': {'value':'open'} }) }}\t\t\t\t
-\t\t\t\t\t\t\t\t{{ form_row(formTicketList.result, {'attr':{'style':'display:none;', 'value':'none'} }) }}
-\t\t\t\t\t\t\t\t<button type=\"submit\" class=\"btn btn-warning\">Ouvrir le ticket</button>
-\t\t\t\t\t\t\t{{ form_end(formTicketList) }}
+\t\t\t\t\t\t\t<p>votre ticket a été fermé, si vous souhaitez contacter de nouveau le support veiller <a href=\"/ticket\">refaire un ticket<a></p>
 \t\t\t\t\t\t{% endif %}
 \t\t\t\t\t{% endif %}
-\t\t\t\t{% endfor %}
+\t\t\t\t{% endfor %}\t
+\t\t\t\t
+
+\t\t\t\t
+\t\t\t\t
+
 \t\t\t\t\t
               </div>
             </div>
