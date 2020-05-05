@@ -1,4 +1,4 @@
-{% if app.user.email == "admin@troubleshooting.com" %}
+{% if app.user.email == "service@troubleshooting.com" %}
 <html lang="fr">
 
 <head>
@@ -208,7 +208,7 @@
   <div id="wrapper">
 
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+    <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
@@ -266,7 +266,7 @@
 			<div class="chat-body">
 		{% for openticket in opentickets %}
 
-		{% if openticket.name == "admin@troubleshooting.com" %}		
+		{% if openticket.name == "service@troubleshooting.com" %}		
 				<div class="answer right">
 		{% else %}
 				<div class="answer left">
@@ -290,6 +290,8 @@
 				{{ form_row(form.text, { 'attr': {'placeholder':'Ecrire un message...', 'class':'form-control'} }) }}
 				<button type="submit" class="btn btn-success">Envoyer le message</button>
 				{{ form_end(form) }}	
+				
+
 					
 
             </div>
@@ -324,7 +326,7 @@
 </html>   
 		
 {% else %}
-<p style="color:red">vous n'êtes pas administrateur</p>
+<p style="color:red">vous n'êtes pas dépanneur</p>
 {% endif %}
 
 		

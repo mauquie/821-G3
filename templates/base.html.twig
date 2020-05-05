@@ -75,6 +75,30 @@
                 <div class="col-md-10" data-aos="fade-up">
                   <h2 class="heading mb-5">Bienvenue sur troubleshooting</h2>
                   <p><a href="#section-reservation" class="smoothscroll btn btn-outline-white px-5 py-3">OUvrir un ticket</a></p>
+				  	<a class="btn btn-success" href="/connexion">Connexion</a>
+					
+					{% if app.user is not null %}
+					<a class="btn btn-secondary">Inscription</a>
+					<a class="btn btn-danger" href="/deconnexion">Deconnexion</a>
+					
+					{% if app.user.email == "admin@troubleshooting.com" %}
+					<a class="btn btn-info" href="/admin">Admin</a>
+					{% else %}
+					<a class="btn btn-secondary">Admin</a>
+					{% endif %}
+					
+					{% if app.user.email == "client@troubleshooting.com" %}
+					<a class="btn btn-info" href="/myticket">Tickets</a>
+					{% else %}
+					<a class="btn btn-secondary">Tickets</a>
+					{% endif %}
+					
+					{% else %}
+					<a class="btn btn-warning" href="/inscription">Inscription</a>
+					<a class="btn btn-secondary" >Deconnexion</a>
+					{% endif %}
+				
+					
                 </div>
               </div>
             </div>
