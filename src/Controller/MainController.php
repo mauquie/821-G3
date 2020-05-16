@@ -16,6 +16,8 @@ use Doctrine\Persistence\ObjectManager; //ajout du manager
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use App\Form\RegistrationType;
+
 
 class MainController extends AbstractController
 {
@@ -248,7 +250,7 @@ class MainController extends AbstractController
 	/**
      * @Route("/admin", name="admin")
      */
-    public function admin(Request $request, ObjectManager $manager)
+    public function admin(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder)
     {
         $repo = $this->getDoctrine()->getRepository(TicketList::class);
 	    $tickets = $repo->FindAll();
@@ -260,13 +262,25 @@ class MainController extends AbstractController
 		$last = $repo->findBy(array(), array('id' => 'desc'),1,0);
 		$TotalTicket = $last[0]->getId();
 
+        $user = new User();
+        $form = $this->createForm(RegistrationType::class, $user);
+        
+        $form->handleRequest($request); //analyse la request
+
+        if($form->isSubmitted() && $form->isValid()) //si le form est envoyé:
+        {
+			$hash = $encoder->encodePassword($user, $user->GetPassword());
+			$user->SetPassword($hash);
+			
+            $manager->persist($user); //persiste l’info dans le temps
+            $manager->flush(); //envoie les info à la BDD
+            
+			return $this->redirect($request->getUri());
+        }
 
 
-		
-		
-		
-		
-        return $this->render('main/admin.html.twig', ['tickets' => $tickets, 'TotalTicket' => $TotalTicket, 'satisfied' => $satisfied, 'discontent' => $discontent]);
+
+        return $this->render('main/admin.html.twig', ['tickets' => $tickets, 'TotalTicket' => $TotalTicket, 'satisfied' => $satisfied, 'discontent' => $discontent, 'form' => $form->createView()]);
     }	
 	
 	

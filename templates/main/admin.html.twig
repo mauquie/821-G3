@@ -1,4 +1,4 @@
-{% if app.user.email == "admin@troubleshooting.com" %}
+{% if app.user.role == "admin" %}
 
 {% set TicketEnCours = 0 %}
 
@@ -280,7 +280,7 @@
                       <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Taux de ticket restant</div>
                       <div class="row no-gutters align-items-center">
                         <div class="col-auto">
-                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ (TicketEnCours / TotalTicket)*100}}%</div>
+                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ ((TicketEnCours / TotalTicket)*100)|round(1)}}%</div>
                         </div>
                         <div class="col">
                           <div class="progress progress-sm mr-2">
@@ -333,9 +333,7 @@
             
             
           </div>
-          
-          
-
+ 
           <!-- Content Row -->
 
           <div class="row">
@@ -345,24 +343,27 @@
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
-                  <div class="dropdown no-arrow">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                      <div class="dropdown-header">Dropdown Header:</div>
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                  </div>
+                  <h6 class="m-0 font-weight-bold text-primary">Créer un utilisateur</h6>
+
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
                   <div class="chart-area">
-                    <canvas id="myAreaChart"></canvas>
+                   		{{ form_start(form) }}
+
+						{{ form_row(form.username, { 'attr': {'placeholder':'pseudo', 'class':'form-control'} }) }}
+
+						{{ form_row(form.email, { 'attr': {'placeholder':'Adresse mail', 'class':'form-control'} }) }}
+
+						{{ form_row(form.password, { 'attr': {'placeholder':'Mot de passe', 'class':'form-control'}}) }}
+
+						{{ form_row(form.confirm_password, { 'attr': {'placeholder':'confirmer Mot de passe', 'class':'form-control'}}) }}
+
+						{{ form_row(form.role) }}
+						
+						<button type="submit" class="btn btn-success">valider</button>
+
+						{{ form_end(form) }} 
                   </div>
                 </div>
               </div>
@@ -379,7 +380,7 @@
               <!-- Project Card Example -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Projects</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">avis clients</h6>
                 </div>
                 <div class="card-body">
                   <h4 class="small font-weight-bold">Clients satisfaits <span class="float-right">{{ satisfied }}%</span></h4>
@@ -423,23 +424,10 @@
 				{% endfor %}
 				</div>
 
-
-                  <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on unDraw &rarr;</a>
                 </div>
               </div>
               </div>
-              
-
-              <!-- Approach -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>
-                </div>
-                <div class="card-body">
-                  <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce CSS bloat and poor page performance. Custom CSS classes are used to create custom components and custom utility classes.</p>
-                  <p class="mb-0">Before working with this theme, you should become familiar with the Bootstrap framework, especially the utility classes.</p>
-                </div>
-              </div>
+             
 
             </div>
         </div>

@@ -40,7 +40,7 @@ class __TwigTemplate_bb5b833816c459604b03f9f4abe0823257b79a80e653811251d256a1cd9
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "main/admin.html.twig"));
 
         // line 1
-        if (0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 1, $this->source); })()), "user", [], "any", false, false, false, 1), "email", [], "any", false, false, false, 1), "admin@troubleshooting.com")) {
+        if (0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 1, $this->source); })()), "user", [], "any", false, false, false, 1), "role", [], "any", false, false, false, 1), "admin")) {
             // line 2
             echo "
 ";
@@ -227,6 +227,8 @@ class __TwigTemplate_bb5b833816c459604b03f9f4abe0823257b79a80e653811251d256a1cd9
                 <a class=\"dropdown-item text-center small text-gray-500\" href=\"#\">Show All Alerts</a>
               </div>
             </li>
+\t\t\t
+\t\t\t
 
             <!-- Nav Item - Messages -->
             <li class=\"nav-item dropdown no-arrow mx-1\">
@@ -290,8 +292,8 @@ class __TwigTemplate_bb5b833816c459604b03f9f4abe0823257b79a80e653811251d256a1cd9
             <li class=\"nav-item dropdown no-arrow\">
               <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"userDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
                 <span class=\"mr-2 d-none d-lg-inline text-gray-600 small\">";
-            // line 232
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 232, $this->source); })()), "user", [], "any", false, false, false, 232), "username", [], "any", false, false, false, 232), "html", null, true);
+            // line 234
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 234, $this->source); })()), "user", [], "any", false, false, false, 234), "username", [], "any", false, false, false, 234), "html", null, true);
             echo "</span>
                 <img class=\"img-profile rounded-circle\" src=\"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRU48dXxDMspFfCbvBRD0XtvnwKG16ioygVJzSWXWiktcAFV8e4&usqp=CAU\">
               </a>
@@ -310,10 +312,8 @@ class __TwigTemplate_bb5b833816c459604b03f9f4abe0823257b79a80e653811251d256a1cd9
                   Activity Log
                 </a>
                 <div class=\"dropdown-divider\"></div>
-                <a class=\"dropdown-item\" href=\"#\" data-toggle=\"modal\" data-target=\"#logoutModal\">
-                  <i class=\"fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400\"></i>
-                  Logout
-                </a>
+                 <a class=\"btn btn-danger\" href=\"/deconnexion\">Deconnexion</a>
+
               </div>
             </li>
 
@@ -345,7 +345,7 @@ class __TwigTemplate_bb5b833816c459604b03f9f4abe0823257b79a80e653811251d256a1cd9
                         <div class=\"col-auto\">
                           <div class=\"h5 mb-0 mr-3 font-weight-bold text-gray-800\">";
             // line 283
-            echo twig_escape_filter($this->env, (((isset($context["TicketEnCours"]) || array_key_exists("TicketEnCours", $context) ? $context["TicketEnCours"] : (function () { throw new RuntimeError('Variable "TicketEnCours" does not exist.', 283, $this->source); })()) / (isset($context["TotalTicket"]) || array_key_exists("TotalTicket", $context) ? $context["TotalTicket"] : (function () { throw new RuntimeError('Variable "TotalTicket" does not exist.', 283, $this->source); })())) * 100), "html", null, true);
+            echo twig_escape_filter($this->env, twig_round((((isset($context["TicketEnCours"]) || array_key_exists("TicketEnCours", $context) ? $context["TicketEnCours"] : (function () { throw new RuntimeError('Variable "TicketEnCours" does not exist.', 283, $this->source); })()) / (isset($context["TotalTicket"]) || array_key_exists("TotalTicket", $context) ? $context["TotalTicket"] : (function () { throw new RuntimeError('Variable "TotalTicket" does not exist.', 283, $this->source); })())) * 100), 1), "html", null, true);
             echo "%</div>
                         </div>
                         <div class=\"col\">
@@ -408,9 +408,7 @@ class __TwigTemplate_bb5b833816c459604b03f9f4abe0823257b79a80e653811251d256a1cd9
             
             
           </div>
-          
-          
-
+ 
           <!-- Content Row -->
 
           <div class=\"row\">
@@ -420,24 +418,48 @@ class __TwigTemplate_bb5b833816c459604b03f9f4abe0823257b79a80e653811251d256a1cd9
               <div class=\"card shadow mb-4\">
                 <!-- Card Header - Dropdown -->
                 <div class=\"card-header py-3 d-flex flex-row align-items-center justify-content-between\">
-                  <h6 class=\"m-0 font-weight-bold text-primary\">Earnings Overview</h6>
-                  <div class=\"dropdown no-arrow\">
-                    <a class=\"dropdown-toggle\" href=\"#\" role=\"button\" id=\"dropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
-                      <i class=\"fas fa-ellipsis-v fa-sm fa-fw text-gray-400\"></i>
-                    </a>
-                    <div class=\"dropdown-menu dropdown-menu-right shadow animated--fade-in\" aria-labelledby=\"dropdownMenuLink\">
-                      <div class=\"dropdown-header\">Dropdown Header:</div>
-                      <a class=\"dropdown-item\" href=\"#\">Action</a>
-                      <a class=\"dropdown-item\" href=\"#\">Another action</a>
-                      <div class=\"dropdown-divider\"></div>
-                      <a class=\"dropdown-item\" href=\"#\">Something else here</a>
-                    </div>
-                  </div>
+                  <h6 class=\"m-0 font-weight-bold text-primary\">Créer un utilisateur</h6>
+
                 </div>
                 <!-- Card Body -->
                 <div class=\"card-body\">
                   <div class=\"chart-area\">
-                    <canvas id=\"myAreaChart\"></canvas>
+                   \t\t";
+            // line 352
+            echo             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 352, $this->source); })()), 'form_start');
+            echo "
+
+\t\t\t\t\t\t";
+            // line 354
+            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 354, $this->source); })()), "username", [], "any", false, false, false, 354), 'row', ["attr" => ["placeholder" => "pseudo", "class" => "form-control"]]);
+            echo "
+
+\t\t\t\t\t\t";
+            // line 356
+            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 356, $this->source); })()), "email", [], "any", false, false, false, 356), 'row', ["attr" => ["placeholder" => "Adresse mail", "class" => "form-control"]]);
+            echo "
+
+\t\t\t\t\t\t";
+            // line 358
+            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 358, $this->source); })()), "password", [], "any", false, false, false, 358), 'row', ["attr" => ["placeholder" => "Mot de passe", "class" => "form-control"]]);
+            echo "
+
+\t\t\t\t\t\t";
+            // line 360
+            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 360, $this->source); })()), "confirm_password", [], "any", false, false, false, 360), 'row', ["attr" => ["placeholder" => "confirmer Mot de passe", "class" => "form-control"]]);
+            echo "
+
+\t\t\t\t\t\t";
+            // line 362
+            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 362, $this->source); })()), "role", [], "any", false, false, false, 362), 'row');
+            echo "
+\t\t\t\t\t\t
+\t\t\t\t\t\t<button type=\"submit\" class=\"btn btn-success\">valider</button>
+
+\t\t\t\t\t\t";
+            // line 366
+            echo             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 366, $this->source); })()), 'form_end');
+            echo " 
                   </div>
                 </div>
               </div>
@@ -454,16 +476,28 @@ class __TwigTemplate_bb5b833816c459604b03f9f4abe0823257b79a80e653811251d256a1cd9
               <!-- Project Card Example -->
               <div class=\"card shadow mb-4\">
                 <div class=\"card-header py-3\">
-                  <h6 class=\"m-0 font-weight-bold text-primary\">Projects</h6>
+                  <h6 class=\"m-0 font-weight-bold text-primary\">avis clients</h6>
                 </div>
                 <div class=\"card-body\">
-                  <h4 class=\"small font-weight-bold\">Clients satisfaits <span class=\"float-right\">10%</span></h4>
+                  <h4 class=\"small font-weight-bold\">Clients satisfaits <span class=\"float-right\">";
+            // line 386
+            echo twig_escape_filter($this->env, (isset($context["satisfied"]) || array_key_exists("satisfied", $context) ? $context["satisfied"] : (function () { throw new RuntimeError('Variable "satisfied" does not exist.', 386, $this->source); })()), "html", null, true);
+            echo "%</span></h4>
                   <div class=\"progress mb-4\">
-                    <div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: 10%\" aria-valuenow=\"40\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>
+                    <div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: ";
+            // line 388
+            echo twig_escape_filter($this->env, (isset($context["satisfied"]) || array_key_exists("satisfied", $context) ? $context["satisfied"] : (function () { throw new RuntimeError('Variable "satisfied" does not exist.', 388, $this->source); })()), "html", null, true);
+            echo "%\" aria-valuenow=\"40\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>
                   </div>
-                  <h4 class=\"small font-weight-bold\">Clients mécontants <span class=\"float-right\">90%</span></h4>
+                  <h4 class=\"small font-weight-bold\">Clients mécontants <span class=\"float-right\">";
+            // line 390
+            echo twig_escape_filter($this->env, (isset($context["discontent"]) || array_key_exists("discontent", $context) ? $context["discontent"] : (function () { throw new RuntimeError('Variable "discontent" does not exist.', 390, $this->source); })()), "html", null, true);
+            echo "%</span></h4>
                   <div class=\"progress mb-4\">
-                    <div class=\"progress-bar bg-danger\" role=\"progressbar\" style=\"width: 90%\" aria-valuenow=\"40\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>
+                    <div class=\"progress-bar bg-danger\" role=\"progressbar\" style=\"width: ";
+            // line 392
+            echo twig_escape_filter($this->env, (isset($context["discontent"]) || array_key_exists("discontent", $context) ? $context["discontent"] : (function () { throw new RuntimeError('Variable "discontent" does not exist.', 392, $this->source); })()), "html", null, true);
+            echo "%\" aria-valuenow=\"40\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>
                   </div>
                 </div>
               </div>
@@ -481,33 +515,33 @@ class __TwigTemplate_bb5b833816c459604b03f9f4abe0823257b79a80e653811251d256a1cd9
 \t\t\t\t
 \t\t\t\t<div class=\"container\">
 \t\t\t\t";
-            // line 408
+            // line 409
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable((isset($context["tickets"]) || array_key_exists("tickets", $context) ? $context["tickets"] : (function () { throw new RuntimeError('Variable "tickets" does not exist.', 408, $this->source); })()));
+            $context['_seq'] = twig_ensure_traversable((isset($context["tickets"]) || array_key_exists("tickets", $context) ? $context["tickets"] : (function () { throw new RuntimeError('Variable "tickets" does not exist.', 409, $this->source); })()));
             foreach ($context['_seq'] as $context["_key"] => $context["ticket"]) {
-                // line 409
+                // line 410
                 echo "\t\t\t\t\t<div class=\"row\">
 \t\t\t\t\t\t<div class=\"col-md-3\">
 \t\t\t\t\t\t\t<p>";
-                // line 411
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ticket"], "title", [], "any", false, false, false, 411), "html", null, true);
+                // line 412
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ticket"], "title", [], "any", false, false, false, 412), "html", null, true);
                 echo "</p>
 \t\t\t\t\t\t</div>
 \t\t\t\t\t\t<div class=\"col-md-4\">
 \t\t\t\t\t\t\t<p>";
-                // line 414
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ticket"], "userRequest", [], "any", false, false, false, 414), "html", null, true);
+                // line 415
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ticket"], "userRequest", [], "any", false, false, false, 415), "html", null, true);
                 echo "</p>
 \t\t\t\t\t\t</div>
 \t\t\t\t\t\t<div class=\"col-md-4\">
 \t\t\t\t\t\t\t<p>";
-                // line 417
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ticket"], "status", [], "any", false, false, false, 417), "html", null, true);
+                // line 418
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ticket"], "status", [], "any", false, false, false, 418), "html", null, true);
                 echo "</p>
 
 \t\t\t\t\t\t\t<a href=\"/adminticket/";
-                // line 419
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ticket"], "tag", [], "any", false, false, false, 419), "html", null, true);
+                // line 420
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ticket"], "tag", [], "any", false, false, false, 420), "html", null, true);
                 echo "\" role=\"button\" class=\"btn btn-success\">Voir le ticket</a>
 \t\t\t\t\t\t</div>
 \t\t\t\t\t</div>
@@ -517,26 +551,13 @@ class __TwigTemplate_bb5b833816c459604b03f9f4abe0823257b79a80e653811251d256a1cd9
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['ticket'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 424
+            // line 425
             echo "\t\t\t\t</div>
 
-
-                  <a target=\"_blank\" rel=\"nofollow\" href=\"https://undraw.co/\">Browse Illustrations on unDraw &rarr;</a>
                 </div>
               </div>
               </div>
-              
-
-              <!-- Approach -->
-              <div class=\"card shadow mb-4\">
-                <div class=\"card-header py-3\">
-                  <h6 class=\"m-0 font-weight-bold text-primary\">Development Approach</h6>
-                </div>
-                <div class=\"card-body\">
-                  <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce CSS bloat and poor page performance. Custom CSS classes are used to create custom components and custom utility classes.</p>
-                  <p class=\"mb-0\">Before working with this theme, you should become familiar with the Bootstrap framework, especially the utility classes.</p>
-                </div>
-              </div>
+             
 
             </div>
         </div>
@@ -608,11 +629,11 @@ class __TwigTemplate_bb5b833816c459604b03f9f4abe0823257b79a80e653811251d256a1cd9
 \t\t
 ";
         } else {
-            // line 513
+            // line 501
             echo "<p style=\"color:red\">vous n'êtes pas administrateur</p>
 ";
         }
-        // line 515
+        // line 503
         echo "
 \t\t
 \t\t
@@ -637,12 +658,12 @@ class __TwigTemplate_bb5b833816c459604b03f9f4abe0823257b79a80e653811251d256a1cd9
 
     public function getDebugInfo()
     {
-        return array (  616 => 515,  612 => 513,  521 => 424,  510 => 419,  505 => 417,  499 => 414,  493 => 411,  489 => 409,  485 => 408,  398 => 324,  378 => 307,  355 => 287,  348 => 283,  294 => 232,  70 => 10,  63 => 8,  60 => 7,  57 => 6,  53 => 5,  50 => 4,  48 => 3,  45 => 2,  43 => 1,);
+        return array (  637 => 503,  633 => 501,  555 => 425,  544 => 420,  539 => 418,  533 => 415,  527 => 412,  523 => 410,  519 => 409,  499 => 392,  494 => 390,  489 => 388,  484 => 386,  461 => 366,  454 => 362,  449 => 360,  444 => 358,  439 => 356,  434 => 354,  429 => 352,  398 => 324,  378 => 307,  355 => 287,  348 => 283,  296 => 234,  70 => 10,  63 => 8,  60 => 7,  57 => 6,  53 => 5,  50 => 4,  48 => 3,  45 => 2,  43 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("{% if app.user.email == \"admin@troubleshooting.com\" %}
+        return new Source("{% if app.user.role == \"admin\" %}
 
 {% set TicketEnCours = 0 %}
 
@@ -811,6 +832,8 @@ class __TwigTemplate_bb5b833816c459604b03f9f4abe0823257b79a80e653811251d256a1cd9
                 <a class=\"dropdown-item text-center small text-gray-500\" href=\"#\">Show All Alerts</a>
               </div>
             </li>
+\t\t\t
+\t\t\t
 
             <!-- Nav Item - Messages -->
             <li class=\"nav-item dropdown no-arrow mx-1\">
@@ -891,10 +914,8 @@ class __TwigTemplate_bb5b833816c459604b03f9f4abe0823257b79a80e653811251d256a1cd9
                   Activity Log
                 </a>
                 <div class=\"dropdown-divider\"></div>
-                <a class=\"dropdown-item\" href=\"#\" data-toggle=\"modal\" data-target=\"#logoutModal\">
-                  <i class=\"fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400\"></i>
-                  Logout
-                </a>
+                 <a class=\"btn btn-danger\" href=\"/deconnexion\">Deconnexion</a>
+
               </div>
             </li>
 
@@ -924,7 +945,7 @@ class __TwigTemplate_bb5b833816c459604b03f9f4abe0823257b79a80e653811251d256a1cd9
                       <div class=\"text-xs font-weight-bold text-danger text-uppercase mb-1\">Taux de ticket restant</div>
                       <div class=\"row no-gutters align-items-center\">
                         <div class=\"col-auto\">
-                          <div class=\"h5 mb-0 mr-3 font-weight-bold text-gray-800\">{{ (TicketEnCours / TotalTicket)*100}}%</div>
+                          <div class=\"h5 mb-0 mr-3 font-weight-bold text-gray-800\">{{ ((TicketEnCours / TotalTicket)*100)|round(1)}}%</div>
                         </div>
                         <div class=\"col\">
                           <div class=\"progress progress-sm mr-2\">
@@ -977,9 +998,7 @@ class __TwigTemplate_bb5b833816c459604b03f9f4abe0823257b79a80e653811251d256a1cd9
             
             
           </div>
-          
-          
-
+ 
           <!-- Content Row -->
 
           <div class=\"row\">
@@ -989,24 +1008,27 @@ class __TwigTemplate_bb5b833816c459604b03f9f4abe0823257b79a80e653811251d256a1cd9
               <div class=\"card shadow mb-4\">
                 <!-- Card Header - Dropdown -->
                 <div class=\"card-header py-3 d-flex flex-row align-items-center justify-content-between\">
-                  <h6 class=\"m-0 font-weight-bold text-primary\">Earnings Overview</h6>
-                  <div class=\"dropdown no-arrow\">
-                    <a class=\"dropdown-toggle\" href=\"#\" role=\"button\" id=\"dropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
-                      <i class=\"fas fa-ellipsis-v fa-sm fa-fw text-gray-400\"></i>
-                    </a>
-                    <div class=\"dropdown-menu dropdown-menu-right shadow animated--fade-in\" aria-labelledby=\"dropdownMenuLink\">
-                      <div class=\"dropdown-header\">Dropdown Header:</div>
-                      <a class=\"dropdown-item\" href=\"#\">Action</a>
-                      <a class=\"dropdown-item\" href=\"#\">Another action</a>
-                      <div class=\"dropdown-divider\"></div>
-                      <a class=\"dropdown-item\" href=\"#\">Something else here</a>
-                    </div>
-                  </div>
+                  <h6 class=\"m-0 font-weight-bold text-primary\">Créer un utilisateur</h6>
+
                 </div>
                 <!-- Card Body -->
                 <div class=\"card-body\">
                   <div class=\"chart-area\">
-                    <canvas id=\"myAreaChart\"></canvas>
+                   \t\t{{ form_start(form) }}
+
+\t\t\t\t\t\t{{ form_row(form.username, { 'attr': {'placeholder':'pseudo', 'class':'form-control'} }) }}
+
+\t\t\t\t\t\t{{ form_row(form.email, { 'attr': {'placeholder':'Adresse mail', 'class':'form-control'} }) }}
+
+\t\t\t\t\t\t{{ form_row(form.password, { 'attr': {'placeholder':'Mot de passe', 'class':'form-control'}}) }}
+
+\t\t\t\t\t\t{{ form_row(form.confirm_password, { 'attr': {'placeholder':'confirmer Mot de passe', 'class':'form-control'}}) }}
+
+\t\t\t\t\t\t{{ form_row(form.role) }}
+\t\t\t\t\t\t
+\t\t\t\t\t\t<button type=\"submit\" class=\"btn btn-success\">valider</button>
+
+\t\t\t\t\t\t{{ form_end(form) }} 
                   </div>
                 </div>
               </div>
@@ -1023,16 +1045,16 @@ class __TwigTemplate_bb5b833816c459604b03f9f4abe0823257b79a80e653811251d256a1cd9
               <!-- Project Card Example -->
               <div class=\"card shadow mb-4\">
                 <div class=\"card-header py-3\">
-                  <h6 class=\"m-0 font-weight-bold text-primary\">Projects</h6>
+                  <h6 class=\"m-0 font-weight-bold text-primary\">avis clients</h6>
                 </div>
                 <div class=\"card-body\">
-                  <h4 class=\"small font-weight-bold\">Clients satisfaits <span class=\"float-right\">10%</span></h4>
+                  <h4 class=\"small font-weight-bold\">Clients satisfaits <span class=\"float-right\">{{ satisfied }}%</span></h4>
                   <div class=\"progress mb-4\">
-                    <div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: 10%\" aria-valuenow=\"40\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>
+                    <div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: {{ satisfied }}%\" aria-valuenow=\"40\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>
                   </div>
-                  <h4 class=\"small font-weight-bold\">Clients mécontants <span class=\"float-right\">90%</span></h4>
+                  <h4 class=\"small font-weight-bold\">Clients mécontants <span class=\"float-right\">{{ discontent }}%</span></h4>
                   <div class=\"progress mb-4\">
-                    <div class=\"progress-bar bg-danger\" role=\"progressbar\" style=\"width: 90%\" aria-valuenow=\"40\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>
+                    <div class=\"progress-bar bg-danger\" role=\"progressbar\" style=\"width: {{ discontent }}%\" aria-valuenow=\"40\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>
                   </div>
                 </div>
               </div>
@@ -1067,23 +1089,10 @@ class __TwigTemplate_bb5b833816c459604b03f9f4abe0823257b79a80e653811251d256a1cd9
 \t\t\t\t{% endfor %}
 \t\t\t\t</div>
 
-
-                  <a target=\"_blank\" rel=\"nofollow\" href=\"https://undraw.co/\">Browse Illustrations on unDraw &rarr;</a>
                 </div>
               </div>
               </div>
-              
-
-              <!-- Approach -->
-              <div class=\"card shadow mb-4\">
-                <div class=\"card-header py-3\">
-                  <h6 class=\"m-0 font-weight-bold text-primary\">Development Approach</h6>
-                </div>
-                <div class=\"card-body\">
-                  <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce CSS bloat and poor page performance. Custom CSS classes are used to create custom components and custom utility classes.</p>
-                  <p class=\"mb-0\">Before working with this theme, you should become familiar with the Bootstrap framework, especially the utility classes.</p>
-                </div>
-              </div>
+             
 
             </div>
         </div>
