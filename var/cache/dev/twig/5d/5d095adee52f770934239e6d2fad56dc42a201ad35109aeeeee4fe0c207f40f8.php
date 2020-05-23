@@ -126,7 +126,7 @@ class __TwigTemplate_635bb63bc224c4764acbeb7bb09a51e9192adcdf256087d5e2c4f891ea7
         <div class=\"col-md-4\">
 \t\t\t<a href=\"/myticket/";
             // line 34
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["openticket"], "tag", [], "any", false, false, false, 34), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["openticket"], "id", [], "any", false, false, false, 34), "html", null, true);
             echo "\" role=\"button\" class=\"btn btn-success\">Voir le ticket</a>
 \t\t</div>
     </div>
@@ -199,7 +199,7 @@ class __TwigTemplate_635bb63bc224c4764acbeb7bb09a51e9192adcdf256087d5e2c4f891ea7
 \t\t\t<p>{{openticket.status}}</p>
 \t\t</div>
         <div class=\"col-md-4\">
-\t\t\t<a href=\"/myticket/{{openticket.tag}}\" role=\"button\" class=\"btn btn-success\">Voir le ticket</a>
+\t\t\t<a href=\"/myticket/{{openticket.id}}\" role=\"button\" class=\"btn btn-success\">Voir le ticket</a>
 \t\t</div>
     </div>
 {% endfor %}

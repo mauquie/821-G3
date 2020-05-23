@@ -41,10 +41,6 @@ class TicketList
      */
     private $result;
 
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $tag;
 
     public function getId(): ?int
     {
@@ -111,15 +107,4 @@ class TicketList
         return $this;
     }
 
-    public function getTag(): ?int
-    {
-        return $this->tag;
-    }
-
-    public function setTag(int $tag): self
-    {
-        $this->tag = $tag;
-
-        return $this;
-    }
 }

@@ -400,103 +400,117 @@ body{
                 echo "
 \t\t";
                 // line 311
-                if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["openticket"], "name", [], "any", false, false, false, 311), "admin@troubleshooting.com") || 0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["openticket"], "name", [], "any", false, false, false, 311), "service@troubleshooting.com"))) {
+                if (0 !== twig_compare(twig_get_attribute($this->env, $this->source, $context["openticket"], "name", [], "any", false, false, false, 311), (isset($context["IdUser"]) || array_key_exists("IdUser", $context) ? $context["IdUser"] : (function () { throw new RuntimeError('Variable "IdUser" does not exist.', 311, $this->source); })()))) {
                     // line 312
-                    echo "\t\t\t\t<div class=\"answer right\">
+                    echo "\t\t\t
+\t\t\t<div class=\"answer right\">
+               <div class=\"avatar\">
+                 <img src=\"https://bootdey.com/img/Content/avatar/avatar1.png\" alt=\"User name\">
+                 <div class=\"status offline\"></div>
+               </div>
+               <div class=\"name\">Assistance</div>
+               <div class=\"text\">
+                 ";
+                    // line 320
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["openticket"], "text", [], "any", false, false, false, 320), "html", null, true);
+                    echo "
+               </div>
+              </div>\t\t\t\t
 \t\t";
                 } else {
-                    // line 314
+                    // line 324
                     echo "\t\t\t\t<div class=\"answer left\">
-\t\t";
-                }
-                // line 316
-                echo "               <div class=\"avatar\">
+\t\t
+               <div class=\"avatar\">
                  <img src=\"https://bootdey.com/img/Content/avatar/avatar1.png\" alt=\"User name\">
                  <div class=\"status offline\"></div>
                </div>
                <div class=\"name\">";
-                // line 320
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["openticket"], "name", [], "any", false, false, false, 320), "html", null, true);
-                echo "</div>
+                    // line 330
+                    echo twig_escape_filter($this->env, (isset($context["NameUser"]) || array_key_exists("NameUser", $context) ? $context["NameUser"] : (function () { throw new RuntimeError('Variable "NameUser" does not exist.', 330, $this->source); })()), "html", null, true);
+                    echo "</div>
                <div class=\"text\">
                  ";
-                // line 322
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["openticket"], "text", [], "any", false, false, false, 322), "html", null, true);
-                echo "
+                    // line 332
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["openticket"], "text", [], "any", false, false, false, 332), "html", null, true);
+                    echo "
                </div>
               </div>
+\t\t\t  ";
+                }
+                // line 336
+                echo "
 \t\t";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['openticket'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 326
+            // line 338
             echo "
-
               <div class=\"answer-add\">
 \t";
-            // line 329
-            $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable((isset($context["ticketlists"]) || array_key_exists("ticketlists", $context) ? $context["ticketlists"] : (function () { throw new RuntimeError('Variable "ticketlists" does not exist.', 329, $this->source); })()));
-            foreach ($context['_seq'] as $context["_key"] => $context["ticketlist"]) {
-                // line 330
-                echo "\t\t";
-                if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["ticketlist"], "status", [], "any", false, false, false, 330), "open")) {
-                    // line 331
-                    echo "\t\t\t\t";
-                    echo                     $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 331, $this->source); })()), 'form_start');
-                    echo "
-
-\t\t\t\t";
-                    // line 333
-                    echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 333, $this->source); })()), "text", [], "any", false, false, false, 333), 'row', ["attr" => ["placeholder" => "Ecrire un message...", "class" => "form-control"]]);
-                    echo "
-\t\t\t\t\t<button type=\"submit\" class=\"btn btn-success\">Envoyer le message</button>
-\t\t\t\t";
-                    // line 335
-                    echo                     $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 335, $this->source); })()), 'form_end');
-                    echo "
-\t\t";
-                }
-                // line 337
-                echo "\t";
-            }
-            $_parent = $context['_parent'];
-            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['ticketlist'], $context['_parent'], $context['loop']);
-            $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 338
-            echo "\t
-\t\t\t\t
-\t\t\t\t";
             // line 340
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable((isset($context["ticketlists"]) || array_key_exists("ticketlists", $context) ? $context["ticketlists"] : (function () { throw new RuntimeError('Variable "ticketlists" does not exist.', 340, $this->source); })()));
             foreach ($context['_seq'] as $context["_key"] => $context["ticketlist"]) {
                 // line 341
-                echo "\t\t\t\t\t";
-                if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["ticketlist"], "tag", [], "any", false, false, false, 341), (isset($context["tag"]) || array_key_exists("tag", $context) ? $context["tag"] : (function () { throw new RuntimeError('Variable "tag" does not exist.', 341, $this->source); })()))) {
+                echo "\t\t";
+                if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["ticketlist"], "status", [], "any", false, false, false, 341), "open")) {
                     // line 342
+                    echo "\t\t\t\t";
+                    echo                     $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 342, $this->source); })()), 'form_start');
+                    echo "
+
+\t\t\t\t";
+                    // line 344
+                    echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 344, $this->source); })()), "text", [], "any", false, false, false, 344), 'row', ["attr" => ["placeholder" => "Ecrire un message...", "class" => "form-control"]]);
+                    echo "
+\t\t\t\t\t<button type=\"submit\" class=\"btn btn-success\">Envoyer le message</button>
+\t\t\t\t";
+                    // line 346
+                    echo                     $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 346, $this->source); })()), 'form_end');
+                    echo "
+\t\t";
+                }
+                // line 348
+                echo "\t";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['ticketlist'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 349
+            echo "\t
+\t\t\t\t
+\t\t\t\t";
+            // line 351
+            $context['_parent'] = $context;
+            $context['_seq'] = twig_ensure_traversable((isset($context["ticketlists"]) || array_key_exists("ticketlists", $context) ? $context["ticketlists"] : (function () { throw new RuntimeError('Variable "ticketlists" does not exist.', 351, $this->source); })()));
+            foreach ($context['_seq'] as $context["_key"] => $context["ticketlist"]) {
+                // line 352
+                echo "\t\t\t\t\t";
+                if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["ticketlist"], "id", [], "any", false, false, false, 352), (isset($context["id"]) || array_key_exists("id", $context) ? $context["id"] : (function () { throw new RuntimeError('Variable "id" does not exist.', 352, $this->source); })()))) {
+                    // line 353
                     echo "\t\t\t\t\t\t";
-                    if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["ticketlist"], "status", [], "any", false, false, false, 342), "open")) {
-                        // line 343
+                    if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["ticketlist"], "status", [], "any", false, false, false, 353), "open")) {
+                        // line 354
                         echo "
 \t\t\t\t\t\t";
                     } else {
-                        // line 345
+                        // line 356
                         echo "\t\t\t\t\t\t\t<p>votre ticket a été fermé, si vous souhaitez contacter de nouveau le support veiller <a href=\"/ticket\">refaire un ticket<a></p>
 \t\t\t\t\t\t";
                     }
-                    // line 347
+                    // line 358
                     echo "\t\t\t\t\t";
                 }
-                // line 348
+                // line 359
                 echo "\t\t\t\t";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['ticketlist'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            echo "\t
-\t\t\t\t
+            // line 360
+            echo "\t\t\t\t
 
 \t\t\t\t
 \t\t\t\t
@@ -547,7 +561,7 @@ body{
 
     public function getDebugInfo()
     {
-        return array (  493 => 348,  490 => 347,  486 => 345,  482 => 343,  479 => 342,  476 => 341,  472 => 340,  468 => 338,  462 => 337,  457 => 335,  452 => 333,  446 => 331,  443 => 330,  439 => 329,  434 => 326,  424 => 322,  419 => 320,  413 => 316,  409 => 314,  405 => 312,  403 => 311,  400 => 310,  396 => 309,  387 => 302,  385 => 301,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  513 => 360,  507 => 359,  504 => 358,  500 => 356,  496 => 354,  493 => 353,  490 => 352,  486 => 351,  482 => 349,  476 => 348,  471 => 346,  466 => 344,  460 => 342,  457 => 341,  453 => 340,  449 => 338,  442 => 336,  435 => 332,  430 => 330,  422 => 324,  415 => 320,  405 => 312,  403 => 311,  400 => 310,  396 => 309,  387 => 302,  385 => 301,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -862,22 +876,33 @@ body{
 \t\t\t<div class=\"chat-body\">
 \t\t{% for openticket in opentickets %}
 
-\t\t{% if openticket.name == \"admin@troubleshooting.com\" or openticket.name == \"service@troubleshooting.com\" %}
-\t\t\t\t<div class=\"answer right\">
-\t\t{% else %}
-\t\t\t\t<div class=\"answer left\">
-\t\t{% endif %}
+\t\t{% if openticket.name != IdUser %}
+\t\t\t
+\t\t\t<div class=\"answer right\">
                <div class=\"avatar\">
                  <img src=\"https://bootdey.com/img/Content/avatar/avatar1.png\" alt=\"User name\">
                  <div class=\"status offline\"></div>
                </div>
-               <div class=\"name\">{{ openticket.name }}</div>
+               <div class=\"name\">Assistance</div>
+               <div class=\"text\">
+                 {{openticket.text}}
+               </div>
+              </div>\t\t\t\t
+\t\t{% else %}
+\t\t\t\t<div class=\"answer left\">
+\t\t
+               <div class=\"avatar\">
+                 <img src=\"https://bootdey.com/img/Content/avatar/avatar1.png\" alt=\"User name\">
+                 <div class=\"status offline\"></div>
+               </div>
+               <div class=\"name\">{{ NameUser }}</div>
                <div class=\"text\">
                  {{openticket.text}}
                </div>
               </div>
-\t\t{% endfor %}
+\t\t\t  {% endif %}
 
+\t\t{% endfor %}
 
               <div class=\"answer-add\">
 \t{% for ticketlist in ticketlists %}
@@ -892,14 +917,14 @@ body{
 \t
 \t\t\t\t
 \t\t\t\t{% for ticketlist in ticketlists %}
-\t\t\t\t\t{% if ticketlist.tag == tag %}
+\t\t\t\t\t{% if ticketlist.id == id %}
 \t\t\t\t\t\t{% if ticketlist.status == \"open\" %}
 
 \t\t\t\t\t\t{% else %}
 \t\t\t\t\t\t\t<p>votre ticket a été fermé, si vous souhaitez contacter de nouveau le support veiller <a href=\"/ticket\">refaire un ticket<a></p>
 \t\t\t\t\t\t{% endif %}
 \t\t\t\t\t{% endif %}
-\t\t\t\t{% endfor %}\t
+\t\t\t\t{% endfor %}
 \t\t\t\t
 
 \t\t\t\t

@@ -1,4 +1,4 @@
-{% if app.user.role == "agent" %}
+{% if app.user.role == "1" or app.user.role == "2" %}
 <html lang="fr">
 
 <head>
@@ -264,23 +264,33 @@
           
 
 			<div class="chat-body">
-		{% for openticket in opentickets %}
+	{% for openticket in opentickets %}
 
-		{% if openticket.name == "service@troubleshooting.com" %}		
+		{% if openticket.name != IdUser %}		
 				<div class="answer right">
-		{% else %}
-				<div class="answer left">
-		{% endif %}
                <div class="avatar">
                  <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="User name">
-                 <div class="status offline"></div>
+                 <div class="status online"></div>
                </div>
-               <div class="name">{{ openticket.name }}</div>
+               <div class="name">Assistance</div>
                <div class="text">
                  {{openticket.text}}
                </div>
               </div>
-		{% endfor %}
+		{% else %}
+				<div class="answer left">
+		
+               <div class="avatar">
+                 <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="User name">
+                 <div class="status online"></div>
+               </div>
+               <div class="name">{{ NameUser }}</div>
+               <div class="text">
+                 {{openticket.text}}
+               </div>
+              </div>
+		{% endif %}
+	{% endfor %}
 
 
 
@@ -293,7 +303,7 @@
 				
 				
 				{% for ticketlist in ticketlists %}
-					{% if ticketlist.tag == tag %}
+					{% if ticketlist.id == id %}
 						{% if ticketlist.status == "open" %}
 							{{ form_start(formTicketList) }}
 								{{ form_row(formTicketList.status, { 'attr': {'value':'close'} }) }}

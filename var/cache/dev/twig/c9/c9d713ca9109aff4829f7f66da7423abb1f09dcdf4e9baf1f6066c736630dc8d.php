@@ -40,7 +40,7 @@ class __TwigTemplate_bb5b833816c459604b03f9f4abe0823257b79a80e653811251d256a1cd9
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "main/admin.html.twig"));
 
         // line 1
-        if (0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 1, $this->source); })()), "user", [], "any", false, false, false, 1), "role", [], "any", false, false, false, 1), "admin")) {
+        if (0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 1, $this->source); })()), "user", [], "any", false, false, false, 1), "role", [], "any", false, false, false, 1), "2")) {
             // line 2
             echo "
 ";
@@ -468,7 +468,7 @@ class __TwigTemplate_bb5b833816c459604b03f9f4abe0823257b79a80e653811251d256a1cd9
            
 
           <!-- Content Row -->
-          <div class=\"row\">
+
 
             <!-- Content Column -->
             <div class=\"col-lg-6 mb-4\">
@@ -539,9 +539,9 @@ class __TwigTemplate_bb5b833816c459604b03f9f4abe0823257b79a80e653811251d256a1cd9
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ticket"], "status", [], "any", false, false, false, 418), "html", null, true);
                 echo "</p>
 
-\t\t\t\t\t\t\t<a href=\"/adminticket/";
+\t\t\t\t\t\t\t<a href=\"/serviceticket/";
                 // line 420
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ticket"], "tag", [], "any", false, false, false, 420), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ticket"], "id", [], "any", false, false, false, 420), "html", null, true);
                 echo "\" role=\"button\" class=\"btn btn-success\">Voir le ticket</a>
 \t\t\t\t\t\t</div>
 \t\t\t\t\t</div>
@@ -559,7 +559,7 @@ class __TwigTemplate_bb5b833816c459604b03f9f4abe0823257b79a80e653811251d256a1cd9
               </div>
              
 
-            </div>
+        
         </div>
         <!-- /.container-fluid -->
 
@@ -663,7 +663,7 @@ class __TwigTemplate_bb5b833816c459604b03f9f4abe0823257b79a80e653811251d256a1cd9
 
     public function getSourceContext()
     {
-        return new Source("{% if app.user.role == \"admin\" %}
+        return new Source("{% if app.user.role == \"2\" %}
 
 {% set TicketEnCours = 0 %}
 
@@ -1037,7 +1037,7 @@ class __TwigTemplate_bb5b833816c459604b03f9f4abe0823257b79a80e653811251d256a1cd9
            
 
           <!-- Content Row -->
-          <div class=\"row\">
+
 
             <!-- Content Column -->
             <div class=\"col-lg-6 mb-4\">
@@ -1082,7 +1082,7 @@ class __TwigTemplate_bb5b833816c459604b03f9f4abe0823257b79a80e653811251d256a1cd9
 \t\t\t\t\t\t<div class=\"col-md-4\">
 \t\t\t\t\t\t\t<p>{{ticket.status}}</p>
 
-\t\t\t\t\t\t\t<a href=\"/adminticket/{{ticket.tag}}\" role=\"button\" class=\"btn btn-success\">Voir le ticket</a>
+\t\t\t\t\t\t\t<a href=\"/serviceticket/{{ticket.id}}\" role=\"button\" class=\"btn btn-success\">Voir le ticket</a>
 \t\t\t\t\t\t</div>
 \t\t\t\t\t</div>
 \t\t\t\t\t<hr>
@@ -1094,7 +1094,7 @@ class __TwigTemplate_bb5b833816c459604b03f9f4abe0823257b79a80e653811251d256a1cd9
               </div>
              
 
-            </div>
+        
         </div>
         <!-- /.container-fluid -->
 

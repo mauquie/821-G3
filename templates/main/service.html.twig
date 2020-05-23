@@ -1,4 +1,4 @@
-{% if app.user.role == "agent" %}
+{% if app.user.role == "1" or app.user.role == "2" %}
 
 {% set TicketEnCours = 0 %}
 
@@ -373,7 +373,7 @@
 						<div class="col-md-4">
 							<p>{{ticket.status}}</p>
 
-							<a href="/serviceticket/{{ticket.tag}}" role="button" class="btn btn-success">Voir le ticket</a>
+							<a href="/serviceticket/{{ticket.id}}" role="button" class="btn btn-success">Voir le ticket</a>
 						</div>
 					</div>
 					<hr>

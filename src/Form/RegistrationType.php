@@ -20,9 +20,9 @@ class RegistrationType extends AbstractType
         ->add('confirm_password', PasswordType::class)
 		->add('role', ChoiceType::class, [
 			'choices'  => [
-				'client' => 'client',
-				'admin' => 'admin',
-				'agent' => 'agent',
+				'client' => '0',
+				'agent' => '1',
+				'admin' => '2',
 			], 'label' => false])
         ;
     }

@@ -308,22 +308,33 @@ body{
 			<div class="chat-body">
 		{% for openticket in opentickets %}
 
-		{% if openticket.name == "admin@troubleshooting.com" or openticket.name == "service@troubleshooting.com" %}
-				<div class="answer right">
-		{% else %}
-				<div class="answer left">
-		{% endif %}
+		{% if openticket.name != IdUser %}
+			
+			<div class="answer right">
                <div class="avatar">
                  <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="User name">
                  <div class="status offline"></div>
                </div>
-               <div class="name">{{ openticket.name }}</div>
+               <div class="name">Assistance</div>
+               <div class="text">
+                 {{openticket.text}}
+               </div>
+              </div>				
+		{% else %}
+				<div class="answer left">
+		
+               <div class="avatar">
+                 <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="User name">
+                 <div class="status offline"></div>
+               </div>
+               <div class="name">{{ NameUser }}</div>
                <div class="text">
                  {{openticket.text}}
                </div>
               </div>
-		{% endfor %}
+			  {% endif %}
 
+		{% endfor %}
 
               <div class="answer-add">
 	{% for ticketlist in ticketlists %}
@@ -338,14 +349,14 @@ body{
 	
 				
 				{% for ticketlist in ticketlists %}
-					{% if ticketlist.tag == tag %}
+					{% if ticketlist.id == id %}
 						{% if ticketlist.status == "open" %}
 
 						{% else %}
 							<p>votre ticket a été fermé, si vous souhaitez contacter de nouveau le support veiller <a href="/ticket">refaire un ticket<a></p>
 						{% endif %}
 					{% endif %}
-				{% endfor %}	
+				{% endfor %}
 				
 
 				
