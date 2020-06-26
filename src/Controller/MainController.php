@@ -6,8 +6,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Form\TicketType;
 use App\Form\TalkticketType;
-use App\Entity\TicketList;
-use App\Entity\Talkticket;
+use App\Entity\Tickets;
+use App\Entity\Chat;
 use App\Entity\User;
 use App\Form\TicketStatusType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -16,6 +16,11 @@ use Doctrine\Persistence\ObjectManager; //ajout du manager
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use App\Form\RegistrationType;
+use Symfony\Component\HttpFoundation\JsonResponse;
+	
+
+
 
 class MainController extends AbstractController
 {
@@ -42,39 +47,39 @@ class MainController extends AbstractController
     {
 		
 
-		$TicketList = new TicketList();
-		$Talkticket = new Talkticket();
+        $Tickets = new Tickets();
+		//$Talkticket = new Talkticket();
 		
-        $form = $this->createForm(TicketType::class, $TicketList);
+        $form = $this->createForm(TicketType::class, $Tickets);
         $form->handleRequest($request);
 
 		$user = $this->getUser();
 		if ($user != NULL){
-		$mail =  $user->getEmail();
+		$mail =  $user->getId();
 		}
 
         if($form->isSubmitted() && $form->isValid()) //si le form est envoyé:
-        {
-			
-			$repo = $this->getDoctrine()->getRepository(Talkticket::class);
-			$last = $repo->findBy(array(), array('tag' => 'desc'),1,0);
-			$tagAdd = $last[0]->getTag();
-			$tagAdd++;
-			$Talkticket->setName($mail);
-			$contenu = $form["contenu"]->getData();
-			$Talkticket->setText($contenu);
-			$Talkticket->setTag($tagAdd);
-			
-			
-			
-			$TicketList->setUserRequest($mail);
-			$TicketList->SetStatus("open");
-			$TicketList->SetResult("none");
-			$TicketList->SetTag($tagAdd);
-            $manager->persist($TicketList); //persiste l’info dans le temps
+        {			
+			//$TicketList->setUserRequest($mail);
+			$Tickets->SetStatus("1");
+			$Tickets->SetUser($user);
+			//$Tickets->SetResult("none");
+            $manager->persist($Tickets); //persiste l’info dans le temps
 			$manager->flush(); //envoie les info à la BDD
-			$manager->persist($Talkticket); //persiste l’info dans le temps
-			$manager->flush();
+			
+			
+			
+			// $repo = $this->getDoctrine()->getRepository(TicketList::class);
+			// $last = $repo->findBy(array(), array('tag' => 'desc'),1,0);
+			// $tagAdd = $last[0]->getTag();
+			// $tagAdd++;
+			// $Talkticket->setName($mail);
+			// $contenu = $form["contenu"]->getData();
+			// $Talkticket->setText($contenu);
+			// $Talkticket->setTag($tagAdd);
+			
+			
+			
             return $this->redirectToRoute('myticket');
         }
 		
@@ -92,93 +97,106 @@ class MainController extends AbstractController
     */
     public function myticket(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder, SessionInterface $session)
     {
-		$opentickets = "";
-		$user = $this->getUser();
-		if ($user != NULL){
-		$mail =  $user->getEmail();
-
+        $opentickets = "";
+        $user = $this->getUser();
+        if ($user != NULL){
+            $mail =  $user->getEmail();
+            
+            
+            
+            
+            $repo = $this->getDoctrine()->getRepository(Tickets::class);
+            
+            $opentickets = $repo->findBy(array('user' => $mail));
+        }
+        $tickets = $repo->FindAll();
+        
+        
+        
+        $last = $repo->findBy(array(), array('id' => 'desc'),1,0);
+        $TotalTicket = $last[0]->getId();
 		
-		
-        $repo = $this->getDoctrine()->getRepository(TicketList::class);
-		$opentickets = $repo->findBy(array('user_request' => $mail));
-	}
-		
-        return $this->render('main/myticket.html.twig',['opentickets' => $opentickets]);
+	return $this->render('main/myticket.html.twig',['tickets' => $tickets, 'TotalTicket' => $TotalTicket, 'opentickets' => $opentickets]);
     }
 	
 	
 	
 	
 	/**
-    * @Route("/myticket/{tag}", name="myticketID")
+    * @Route("/myticket/{id}", name="myticketID")
     */
-    public function myticketID($tag, Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder, SessionInterface $session)
+    public function myticketID($id, Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder, SessionInterface $session)
     {
 
 		$verif = "";
-		$Talkticket = new Talkticket();	
-		$Ticket = new TicketList();
+		$Chat = new Chat();	
+		$Ticket = new Tickets();
 		$opentickets = "";
 		$user = $this->getUser();
+	
+		
 		if ($user != NULL){
-		$mail =  $user->getEmail();
+		$mail =  $user->getId();
 		}
 		
 		
-        $repo = $this->getDoctrine()->getRepository(Talkticket::class);
-		$opentickets = $repo->findBy(array('name' => $mail, 'tag' => $tag));
+        $repoTicket = $this->getDoctrine()->getRepository(Tickets::class);
+		$opentickets = $repoTicket->findBy(array('user' => $mail, 'id' => $id));
+		$IdUser = $opentickets[0]->getUser();
 		
-		$repo2 = $this->getDoctrine()->getRepository(TicketList::class);
-        $ticketlists = $repo2->findBy(array('tag' => $tag));
+		$repoUser = $this->getDoctrine()->getRepository(User::class);
+		$GetNameUser = $repoUser->findBy(array('id' => $IdUser));
+		$NameUser = $GetNameUser[0]->getUsername();
+		
+
+        $ticketId = $repoTicket->findBy(array('id' => $id));
 
 		
 		if (isset($opentickets[0])){
-		$verif = $opentickets[0]->getName();
+		$verif = $opentickets[0]->getUser();
 		}
 		
-		if ($verif != $mail)
+		if ($verif != $IdUser)
 		{
 		$opentickets = NULL;
 		return $this->redirectToRoute('main');
 
 		}else{
-			$opentickets = $repo->findBy(array('tag' => $tag));
-			$form = $this->createForm(TalkticketType::class, $Talkticket);
+			$repoTalkTicket = $this->getDoctrine()->getRepository(Chat::class);
+			$opentickets = $repoTalkTicket->findBy(array('tag' => $id));
+			$form = $this->createForm(TalkticketType::class, $Chat);
 			$form->handleRequest($request);
-			$formTicketList = $this->createForm(TicketStatusType::class, $Ticket);
-            $formTicketList->handleRequest($request);
+			$formTicket = $this->createForm(TicketStatusType::class, $Ticket);
+            $formTicket->handleRequest($request);
 	
 
 
         if($form->isSubmitted() && $form->isValid()) //si le form est envoyé:
         {
-			
-
-			$Talkticket->setName($mail);
-			$Talkticket->setTag($tag);
-
+            $Chat->setUser($user);
+            $Chat->setTag($id);
 				
 
-            $manager->persist($Talkticket); //persiste l’info dans le temps
+            $manager->persist($Chat); //persiste l’info dans le temps
 			$manager->flush(); //envoie les info à la BDD
 
 			return $this->redirect($request->getUri());
         }
+
 		
 		
-		
-		if($formTicketList->isSubmitted() && $formTicketList->isValid()) //si le form est envoyé:
+		if($formTicket->isSubmitted() && $formTicket->isValid()) //si le form est envoyé:
         {
 			
-			 $idTicket = $tag + 1;
+			$idTicket = $id;
 		
 			$entityManager = $this->getDoctrine()->getManager();
-			$Ticket = $entityManager->getRepository(TicketList::class)->find($idTicket);
+			$Ticket = $entityManager->getRepository(Tickets::class)->find($idTicket);
 			
 			$status = $formTicketList["status"]->getData();
-			$result = $formTicketList["result"]->getData();
+			//$result = $formTicketList["result"]->getData();
 			$Ticket->setStatus($status);
-			$Ticket->setResult($result);
+			//$Ticket->setResult($result);
 
 			$entityManager->flush();
 
@@ -188,69 +206,18 @@ class MainController extends AbstractController
 	
 	
 	
-	return $this->render('main/myticketID.html.twig',['opentickets' => $opentickets, 'ticketlists' => $ticketlists , 'tag' => $tag, 'form' => $form->createView(), 'formTicketList' => $formTicketList->createView() ]);
+        return $this->render('main/myticketID.html.twig',['opentickets' => $opentickets, 'ticketlists' => $ticketId, 'id' => $id, 'NameUser' => $NameUser, 'IdUser' => $IdUser, 'form' => $form->createView(), 'formTicketList' => $formTicket->createView() ]);
 }
 		
-}
+}	
 	
-	
-	
-	/**
-    * @Route("/adminticket/{tag}", name="adminticket")
-    */
-    public function adminticket($tag, Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder, SessionInterface $session)
-    {
 		
-		$opentickets = "";
-		$user = $this->getUser();
-
-		$Talkticket = new Talkticket();
-		if ($user != NULL){
-		$mail =  $user->getEmail();
-        $repo = $this->getDoctrine()->getRepository(Talkticket::class);
-		$opentickets = $repo->findBy(array('tag' => $tag));
-		}
-
-
-        $form = $this->createForm(TalkticketType::class, $Talkticket);
-        $form->handleRequest($request);
-		
-
-
-        if($form->isSubmitted() && $form->isValid()) //si le form est envoyé:
-        {
-			
-
-			$Talkticket->setName($mail);
-			$Talkticket->setTag($tag);
-
-
-            $manager->persist($Talkticket); //persiste l’info dans le temps
-			$manager->flush(); //envoie les info à la BDD
-
-			return $this->redirect($request->getUri());
-        }
-
-		
-		
-        return $this->render('main/adminticket.html.twig',['opentickets' => $opentickets, 'form' => $form->createView() ]);
-    }
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	/**
      * @Route("/admin", name="admin")
      */
-    public function admin(Request $request, ObjectManager $manager)
+    public function admin(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder)
     {
-        $repo = $this->getDoctrine()->getRepository(TicketList::class);
+        $repo = $this->getDoctrine()->getRepository(Tickets::class);
 	    $tickets = $repo->FindAll();
 		
 		$satisfied = 70;
@@ -260,68 +227,166 @@ class MainController extends AbstractController
 		$last = $repo->findBy(array(), array('id' => 'desc'),1,0);
 		$TotalTicket = $last[0]->getId();
 
-
-
-		
-		
-		
-		
-        return $this->render('main/admin.html.twig', ['tickets' => $tickets, 'TotalTicket' => $TotalTicket, 'satisfied' => $satisfied, 'discontent' => $discontent]);
-    }	
-	
-	
-	/**
-    * @Route("/serviceticket/{tag}", name="adminticket")
-    */
-    public function serviceticket($tag, Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder, SessionInterface $session)
-    {
-		$Ticket = new TicketList();
-		$opentickets = "";
-		$user = $this->getUser();
-		$repo2 = $this->getDoctrine()->getRepository(TicketList::class);
-        $ticketlists = $repo2->findBy(array('tag' => $tag));
-
-		$Talkticket = new Talkticket();
-		if ($user != NULL){
-		$mail =  $user->getEmail();
-        $repo = $this->getDoctrine()->getRepository(Talkticket::class);
-		$opentickets = $repo->findBy(array('tag' => $tag));
-		}
-
-
-        $form = $this->createForm(TalkticketType::class, $Talkticket);
-        $form->handleRequest($request);
-		$formTicketList = $this->createForm(TicketStatusType::class, $Ticket);
-        $formTicketList->handleRequest($request);
-
+        $user = new User();
+        $form = $this->createForm(RegistrationType::class, $user);
+        
+        $form->handleRequest($request); //analyse la request
 
         if($form->isSubmitted() && $form->isValid()) //si le form est envoyé:
         {
+			$hash = $encoder->encodePassword($user, $user->GetPassword());
+			$user->SetPassword($hash);
 			
-
-			$Talkticket->setName($mail);
-			$Talkticket->setTag($tag);
-
-
-            $manager->persist($Talkticket); //persiste l’info dans le temps
-			$manager->flush(); //envoie les info à la BDD
-
+            $manager->persist($user); //persiste l’info dans le temps
+            $manager->flush(); //envoie les info à la BDD
+            
 			return $this->redirect($request->getUri());
         }
 
 
+
+        return $this->render('main/admin.html.twig', ['tickets' => $tickets, 'TotalTicket' => $TotalTicket,'satisfied' => $satisfied, 'discontent' => $discontent, 'form' => $form->createView()]);
+    }	
+    
+    /**
+     * @Route("/adminticket/{id}", name="adminticket")
+     */
+    public function adminticket($id, Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder, SessionInterface $session)
+    {
+        $Ticket = new Tickets();
+        $opentickets = "";
+        $user = $this->getUser();
+        $repo2 = $this->getDoctrine()->getRepository(Tickets::class);
+        $ticketlists = $repo2->findBy(array('id' => $id));
+        
+        
+        
+        $repoTicketList = $this->getDoctrine()->getRepository(Tickets::class);
+        $opentickets = $repoTicketList->findBy(array('id' => $id));
+        $IdUser = $opentickets[0]->getUser();
+        
+        $repoUser = $this->getDoctrine()->getRepository(User::class);
+        $GetNameUser = $repoUser->findBy(array('id' => $IdUser));
+        $NameUser = $GetNameUser[0]->getUsername();
+        
+        
+        
+        $Chat = new Chat();
+        if ($user != NULL){
+            $mail =  $user->getId();
+            $repo = $this->getDoctrine()->getRepository(Chat::class);
+            $opentickets = $repo->findBy(array('user' => $id));
+        }
+        
+        
+        $form = $this->createForm(TalkticketType::class, $Chat);
+        $form->handleRequest($request);
+        $formTicketList = $this->createForm(TicketStatusType::class, $Ticket);
+        $formTicketList->handleRequest($request);
+        
+        
+        if($form->isSubmitted() && $form->isValid()) //si le form est envoyé:
+        {
+            
+            
+            $Chat->setUser($user);
+            $Chat->setTicket($id);
+            
+            $manager->persist($Chat); //persiste l’info dans le temps
+            $manager->flush(); //envoie les info à la BDD
+            
+            return $this->redirect($request->getUri());
+        }
+        
+        
+        if($formTicketList->isSubmitted() && $formTicketList->isValid()) //si le form est envoyé:
+        {
+            
+            $idTicket = $id;
+            
+            $entityManager = $this->getDoctrine()->getManager();
+            $Ticket = $entityManager->getRepository(Tickets::class)->find($idTicket);
+            
+            $status = $formTicketList["status"]->getData();
+            //$result = $formTicketList["result"]->getData();
+            $Ticket->setStatus($status);
+            //$Ticket->setResult($result);
+            
+            $entityManager->flush();
+            
+            
+            return $this->redirect($request->getUri());
+        }
+        
+        
+        return $this->render('main/adminticket.html.twig',['opentickets' => $opentickets, 'ticketlists' => $ticketlists, 'id' => $id, 'IdUser' => $IdUser, 'NameUser' => $NameUser, 'form' => $form->createView(),  'formTicketList' => $formTicketList->createView() ]);
+    }
+	
+	
+	/**
+    * @Route("/serviceticket/{id}", name="serviceticket")
+    */
+    public function serviceticket($id, Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder, SessionInterface $session)
+    {
+		$Ticket = new Tickets();
+		$opentickets = "";
+		$user = $this->getUser();
+		$repo2 = $this->getDoctrine()->getRepository(Tickets::class);
+        $ticketlists = $repo2->findBy(array('id' => $id));
+
+
+
+        $repoTicketList = $this->getDoctrine()->getRepository(Tickets::class);
+		$opentickets = $repoTicketList->findBy(array('id' => $id));
+		$IdUser = $opentickets[0]->getUser();
+		
+		$repoUser = $this->getDoctrine()->getRepository(User::class);
+		$GetNameUser = $repoUser->findBy(array('id' => $IdUser));
+		$NameUser = $GetNameUser[0]->getUsername();
+		
+		
+
+		$Chat = new Chat();
+		if ($user != NULL){
+		$mail =  $user->getId();
+		$repo = $this->getDoctrine()->getRepository(Chat::class);
+		$opentickets = $repo->findBy(array('user' => $id));
+		}
+
+
+		$form = $this->createForm(TalkticketType::class, $Chat);
+        $form->handleRequest($request);
+		$formTicketList = $this->createForm(TicketStatusType::class, $Ticket);
+        $formTicketList->handleRequest($request);
+
+        
+        if($form->isSubmitted() && $form->isValid()) //si le form est envoyé:
+        {
+			
+
+            $Chat->setUser($user);
+            $Chat->setTag($id);
+
+
+            $manager->persist($Chat); //persiste l’info dans le temps
+			$manager->flush(); //envoie les info à la BDD
+
+			return $this->redirect($request->getUri());
+        }
+        
+
 		if($formTicketList->isSubmitted() && $formTicketList->isValid()) //si le form est envoyé:
         {
 			
-			 $idTicket = $tag + 1;
+			$idTicket = $id;
 		
 			$entityManager = $this->getDoctrine()->getManager();
-			$Ticket = $entityManager->getRepository(TicketList::class)->find($idTicket);
+			$Ticket = $entityManager->getRepository(Tickets::class)->find($idTicket);
 			
 			$status = $formTicketList["status"]->getData();
-			$result = $formTicketList["result"]->getData();
+			//$result = $formTicketList["result"]->getData();
 			$Ticket->setStatus($status);
-			$Ticket->setResult($result);
+			//$Ticket->setResult($result);
 
 			$entityManager->flush();
 
@@ -330,19 +395,10 @@ class MainController extends AbstractController
         }
 		
 		
-        return $this->render('main/serviceticket.html.twig',['opentickets' => $opentickets, 'ticketlists' => $ticketlists, 'tag' => $tag, 'form' => $form->createView(),  'formTicketList' => $formTicketList->createView() ]);
+        return $this->render('main/serviceticket.html.twig',['opentickets' => $opentickets, 'ticketlists' => $ticketlists, 'id' => $id, 'IdUser' => $IdUser, 'NameUser' => $NameUser, 'form' => $form->createView(),  'formTicketList' => $formTicketList->createView() ]);
     }
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	/**
      * @Route("/service", name="service")
      */
@@ -357,9 +413,9 @@ class MainController extends AbstractController
 
 		
 		
-		$repo = $this->getDoctrine()->getRepository(TicketList::class);
+		$repo = $this->getDoctrine()->getRepository(Tickets::class);
 	   
-		$opentickets = $repo->findBy(array('user_request' => $mail));
+		$opentickets = $repo->findBy(array('user' => $mail));
 		}
 		$tickets = $repo->FindAll();
 		
@@ -376,5 +432,6 @@ class MainController extends AbstractController
 		
         return $this->render('main/service.html.twig', ['tickets' => $tickets, 'TotalTicket' => $TotalTicket, 'opentickets' => $opentickets]);
     }	
+
 }
 

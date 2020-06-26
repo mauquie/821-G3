@@ -1,7 +1,7 @@
-{% if app.user.email == "admin@troubleshooting.com" %}
+{% if app.user.role == "2" %}
 <html lang="fr">
 
-<head>
+<head> 
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -264,23 +264,34 @@
           
 
 			<div class="chat-body">
-		{% for openticket in opentickets %}
+               {% for openticket in opentickets %}
+            
+            		{% if openticket.user != IdUser %}		
+            				<div class="answer right">
+                           <div class="avatar">
+                             <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="User name">
+                             <div class="status online"></div>
+                           </div>
+                           <div class="name">Admin</div>
+                           <div class="text">
+                             {{openticket.text}}
+                           </div>
+                          </div>
+            		{% else %}
+            				<div class="answer left">
+            		
+                           <div class="avatar">
+                             <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="User name">
+                             <div class="status online"></div>
+                           </div>
+                           <div class="name">{{ NameUser }}</div>
+                           <div class="text">
+                             {{openticket.text}}
+                           </div>
+                          </div>
+            		{% endif %}
+            	{% endfor %}
 
-		{% if openticket.name == "admin@troubleshooting.com" %}		
-				<div class="answer right">
-		{% else %}
-				<div class="answer left">
-		{% endif %}
-               <div class="avatar">
-                 <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="User name">
-                 <div class="status offline"></div>
-               </div>
-               <div class="name">{{ openticket.name }}</div>
-               <div class="text">
-                 {{openticket.text}}
-               </div>
-              </div>
-		{% endfor %}
 
 
 

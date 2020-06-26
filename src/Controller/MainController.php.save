@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Form\TicketType;
 use App\Form\TalkticketType;
-use App\Entity\TicketList;
+use App\Entity\Tickets;
 use App\Entity\Talkticket;
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;

@@ -2,7 +2,7 @@
 
 namespace App\Form;
 
-use App\Entity\TicketList;
+use App\Entity\Tickets;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -15,14 +15,14 @@ class TicketType extends AbstractType
 
         $builder
             ->add('title')
-            ->add('contenu')
+            ->add('description')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => TicketList::class,
+            'data_class' => Tickets::class,
         ]);
     }
 }

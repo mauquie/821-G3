@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class RegistrationType extends AbstractType
 {
@@ -17,6 +18,12 @@ class RegistrationType extends AbstractType
         ->add('username')
         ->add('password', PasswordType::class)
         ->add('confirm_password', PasswordType::class)
+		->add('role', ChoiceType::class, [
+			'choices'  => [
+				'client' => '0',
+				'agent' => '1',
+				'admin' => '2',
+			], 'label' => false])
         ;
     }
 	

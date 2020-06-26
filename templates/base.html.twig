@@ -81,13 +81,19 @@
 					<a class="btn btn-secondary">Inscription</a>
 					<a class="btn btn-danger" href="/deconnexion">Deconnexion</a>
 					
-					{% if app.user.email == "admin@troubleshooting.com" %}
+					{% if app.user.role == "2" %}
 					<a class="btn btn-info" href="/admin">Admin</a>
 					{% else %}
 					<a class="btn btn-secondary">Admin</a>
 					{% endif %}
 					
-					{% if app.user.email == "client@troubleshooting.com" %}
+					{% if app.user.role == "1" %}
+					<a class="btn btn-info" href="/service">Service</a>
+					{% else %}
+					<a class="btn btn-secondary">Service</a>
+					{% endif %}
+					
+					{% if app.user.role == "0" %}
 					<a class="btn btn-info" href="/myticket">Tickets</a>
 					{% else %}
 					<a class="btn btn-secondary">Tickets</a>
