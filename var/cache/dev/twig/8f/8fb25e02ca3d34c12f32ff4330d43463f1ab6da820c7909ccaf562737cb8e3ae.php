@@ -105,7 +105,7 @@ class __TwigTemplate_72671236ad6f801eda84ac23fee209c414475efc290a74c656a81fcfc92
 
 \t\t\t";
             // line 16
-            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 16, $this->source); })()), "contenu", [], "any", false, false, false, 16), 'row', ["attr" => ["placeholder" => "Décrivez votre problème...", "class" => "form-control"]]);
+            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 16, $this->source); })()), "description", [], "any", false, false, false, 16), 'row', ["attr" => ["placeholder" => "Décrivez votre problème...", "class" => "form-control"]]);
             echo "
 
 
@@ -152,7 +152,7 @@ class __TwigTemplate_72671236ad6f801eda84ac23fee209c414475efc290a74c656a81fcfc92
 
     public function getSourceContext()
     {
-        return new Source("{% extends 'base.html.twig' %}
+        return new Source("{% extends 'base.html.twig' %} 
 
 {% block title %}Troubleshooting - Dépannage informatique en ligne{% endblock %}
 
@@ -167,7 +167,7 @@ class __TwigTemplate_72671236ad6f801eda84ac23fee209c414475efc290a74c656a81fcfc92
 
 \t\t\t{{ form_row(form.title, { 'attr': {'placeholder':'Titre...', 'class':'form-control'} }) }}
 
-\t\t\t{{ form_row(form.contenu, { 'attr': {'placeholder':'Décrivez votre problème...', 'class':'form-control'} }) }}
+\t\t\t{{ form_row(form.description, { 'attr': {'placeholder':'Décrivez votre problème...', 'class':'form-control'} }) }}
 
 
 \t\t\t<button type=\"submit\" class=\"btn btn-success\">Envoyer le formulaire</button>

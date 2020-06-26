@@ -24,16 +24,10 @@ class __TwigTemplate_771523bb8c79cd92e55041c05629d1db7b08f15d65ef5a0a2c09be166dd
 
         $this->source = $this->getSourceContext();
 
-        $this->blocks = [
-            'title' => [$this, 'block_title'],
-            'body' => [$this, 'block_body'],
-        ];
-    }
+        $this->parent = false;
 
-    protected function doGetParent(array $context)
-    {
-        // line 1
-        return "base.html.twig";
+        $this->blocks = [
+        ];
     }
 
     protected function doDisplay(array $context, array $blocks = [])
@@ -45,51 +39,31 @@ class __TwigTemplate_771523bb8c79cd92e55041c05629d1db7b08f15d65ef5a0a2c09be166dd
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "main/myticketID.html.twig"));
 
-        $this->parent = $this->loadTemplate("base.html.twig", "main/myticketID.html.twig", 1);
-        $this->parent->display($context, array_merge($this->blocks, $blocks));
-        
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
+        // line 1
+        if (0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 1, $this->source); })()), "user", [], "any", false, false, false, 1), "role", [], "any", false, false, false, 1), "0")) {
+            // line 2
+            echo "<html lang=\"fr\">
 
-        
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+<head>
 
-    }
+  <meta charset=\"utf-8\">
+  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">
+  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">
+  <meta name=\"description\" content=\"\">
+  <meta name=\"author\" content=\"\">
 
-    // line 3
-    public function block_title($context, array $blocks = [])
-    {
-        $macros = $this->macros;
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
+  <title>SB Admin 2 - Dashboard</title>
 
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
+  <!-- Custom fonts for this template-->
+  <link href=\"https://localhost:8000/vendor/fontawesome-free/css/all.min.css\" rel=\"stylesheet\" type=\"text/css\">
+  <link href=\"https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i\" rel=\"stylesheet\">
 
-        echo "Troubleshooting - Dépannage informatique en ligne";
-        
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+  <!-- Custom styles for this template-->
+  <link href=\"https://localhost:8000/css/sb-admin-2.min.css\" rel=\"stylesheet\">
 
-        
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
+</head> 
+<style>
 
-    }
-
-    // line 5
-    public function block_body($context, array $blocks = [])
-    {
-        $macros = $this->macros;
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
-
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
-
-        // line 6
-        echo "<style>
-body{
-    margin-top:20px;
-    background:#eee;
-}
 .row.row-broken {
     padding-bottom: 0;
 }
@@ -269,108 +243,12 @@ body{
     color: #333333;
 }
 
-/**************ADD FORM ***************/
-.chat-body .answer-add {
-    clear: both;
-    position: relative;
-    margin: 20px -20px -20px;
-    padding: 20px;
-    background: #46be8a;
-}
-.chat-body .answer-add input {
-    border: none;
-    background: none;
-    display: block;
-    width: 100%;
-    font-size: 16px;
-    line-height: 20px;
-    padding: 0;
-    color: #ffffff;
-}
-.chat input {
-    -webkit-appearance: none;
-    border-radius: 0;
-}
-.chat-body .answer-add .answer-btn-1 {
-    background: url(\"http://91.234.35.26/iwiki-admin/v1.0.0/admin/img/icon-40.png\") 50% 50% no-repeat;
-    right: 56px;
-}
-.chat-body .answer-add .answer-btn {
-    display: block;
-    cursor: pointer;
-    width: 36px;
-    height: 36px;
-    position: absolute;
-    top: 50%;
-    margin-top: -18px;
-}
-.chat-body .answer-add .answer-btn-2 {
-    background: url(\"http://91.234.35.26/iwiki-admin/v1.0.0/admin/img/icon-41.png\") 50% 50% no-repeat;
-    right: 20px;
-}
-.chat input::-webkit-input-placeholder {
-   color: #fff;
-}
 
-.chat input:-moz-placeholder { /* Firefox 18- */
-   color: #fff;  
-}
-
-.chat input::-moz-placeholder {  /* Firefox 19+ */
-   color: #fff;  
-}
-
-.chat input:-ms-input-placeholder {  
-   color: #fff;  
-}
-.chat input {
-    -webkit-appearance: none;
-    border-radius: 0;
-}
-
-.select-style {
-    padding: 0;
-    margin: 0;
-    border: 1px solid #ccc;
-    width: 120px;
-    border-radius: 3px;
-    overflow: hidden;
-    background-color: #fff;
-    background: #fff;
-    position: relative;
-}
-.select-style select {
-    padding: 5px 8px;
-    width: 130%;
-    border: none;
-    box-shadow: none;
-    background-color: transparent;
-    background-image: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-}
-.select-style:after {
-    top: 50%;
-    left: 85%;
-    border: solid transparent;
-    content: \" \";
-    height: 0;
-    width: 0;
-    position: absolute;
-    pointer-events: none;
-    border-color: rgba(0, 0, 0, 0);
-    border-top-color: #000000;
-    border-width: 5px;
-    margin-top: -2px;
-    z-index: 100;
-}
-.select-style select:focus {
-    outline: none;
-}
 </style>
+<body id=\"page-top\">
 
-
+  <!-- Page Wrapper -->
+  <div id=\"wrapper\">
 
 
 <link href=\"//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css\" rel=\"stylesheet\" id=\"bootstrap-css\">
@@ -380,136 +258,100 @@ body{
 
 <link href=\"https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css\" rel=\"stylesheet\">
 <script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.6.8-fix/jquery.nicescroll.min.js\"></script>
-";
-        // line 301
-        if ((isset($context["form"]) || array_key_exists("form", $context))) {
-            // line 302
-            echo "<div class=\"content container-fluid bootstrap snippets\">
+<div class=\"content container-fluid bootstrap snippets\">
       <div class=\"row row-broken\">
         <div class=\"col-sm-12 col-xs-12 chat\" style=\"outline: none;\" tabindex=\"5001\">
           <div class=\"col-inside-lg decor-default\">
           
 
-\t\t\t<div class=\"chat-body\">
-\t\t";
-            // line 309
+            \t\t\t<div class=\"chat-body\">
+            \t";
+            // line 225
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable((isset($context["opentickets"]) || array_key_exists("opentickets", $context) ? $context["opentickets"] : (function () { throw new RuntimeError('Variable "opentickets" does not exist.', 309, $this->source); })()));
+            $context['_seq'] = twig_ensure_traversable((isset($context["opentickets"]) || array_key_exists("opentickets", $context) ? $context["opentickets"] : (function () { throw new RuntimeError('Variable "opentickets" does not exist.', 225, $this->source); })()));
             foreach ($context['_seq'] as $context["_key"] => $context["openticket"]) {
-                // line 310
-                echo "
-\t\t";
-                // line 311
-                if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["openticket"], "name", [], "any", false, false, false, 311), "admin@troubleshooting.com") || 0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["openticket"], "name", [], "any", false, false, false, 311), "service@troubleshooting.com"))) {
-                    // line 312
-                    echo "\t\t\t\t<div class=\"answer right\">
-\t\t";
+                // line 226
+                echo "            
+            \t\t";
+                // line 227
+                if (0 !== twig_compare(twig_get_attribute($this->env, $this->source, $context["openticket"], "user", [], "any", false, false, false, 227), (isset($context["IdUser"]) || array_key_exists("IdUser", $context) ? $context["IdUser"] : (function () { throw new RuntimeError('Variable "IdUser" does not exist.', 227, $this->source); })()))) {
+                    echo "\t\t
+            \t\t\t\t<div class=\"answer right\">
+                           <div class=\"avatar\">
+                             <img src=\"https://bootdey.com/img/Content/avatar/avatar1.png\" alt=\"User name\">
+                             <div class=\"status online\"></div>
+                           </div>
+                           <div class=\"name\">Assistance</div>
+                           <div class=\"text\">
+                             ";
+                    // line 235
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["openticket"], "text", [], "any", false, false, false, 235), "html", null, true);
+                    echo "
+                           </div>
+                          </div>
+            \t\t";
                 } else {
-                    // line 314
-                    echo "\t\t\t\t<div class=\"answer left\">
-\t\t";
+                    // line 239
+                    echo "            \t\t\t\t<div class=\"answer left\">
+            \t\t
+                           <div class=\"avatar\">
+                             <img src=\"https://bootdey.com/img/Content/avatar/avatar1.png\" alt=\"User name\">
+                             <div class=\"status online\"></div>
+                           </div>
+                           <div class=\"name\">";
+                    // line 245
+                    echo twig_escape_filter($this->env, (isset($context["NameUser"]) || array_key_exists("NameUser", $context) ? $context["NameUser"] : (function () { throw new RuntimeError('Variable "NameUser" does not exist.', 245, $this->source); })()), "html", null, true);
+                    echo "</div>
+                           <div class=\"text\">
+                             ";
+                    // line 247
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["openticket"], "text", [], "any", false, false, false, 247), "html", null, true);
+                    echo "
+                           </div>
+                          </div>
+            \t\t";
                 }
-                // line 316
-                echo "               <div class=\"avatar\">
-                 <img src=\"https://bootdey.com/img/Content/avatar/avatar1.png\" alt=\"User name\">
-                 <div class=\"status offline\"></div>
-               </div>
-               <div class=\"name\">";
-                // line 320
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["openticket"], "name", [], "any", false, false, false, 320), "html", null, true);
-                echo "</div>
-               <div class=\"text\">
-                 ";
-                // line 322
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["openticket"], "text", [], "any", false, false, false, 322), "html", null, true);
-                echo "
-               </div>
-              </div>
-\t\t";
+                // line 251
+                echo "            \t";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['openticket'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 326
+            // line 252
             echo "
 
-              <div class=\"answer-add\">
-\t";
-            // line 329
-            $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable((isset($context["ticketlists"]) || array_key_exists("ticketlists", $context) ? $context["ticketlists"] : (function () { throw new RuntimeError('Variable "ticketlists" does not exist.', 329, $this->source); })()));
-            foreach ($context['_seq'] as $context["_key"] => $context["ticketlist"]) {
-                // line 330
-                echo "\t\t";
-                if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["ticketlist"], "status", [], "any", false, false, false, 330), "open")) {
-                    // line 331
-                    echo "\t\t\t\t";
-                    echo                     $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 331, $this->source); })()), 'form_start');
-                    echo "
+
 
 \t\t\t\t";
-                    // line 333
-                    echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 333, $this->source); })()), "text", [], "any", false, false, false, 333), 'row', ["attr" => ["placeholder" => "Ecrire un message...", "class" => "form-control"]]);
-                    echo "
-\t\t\t\t\t<button type=\"submit\" class=\"btn btn-success\">Envoyer le message</button>
-\t\t\t\t";
-                    // line 335
-                    echo                     $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 335, $this->source); })()), 'form_end');
-                    echo "
-\t\t";
-                }
-                // line 337
-                echo "\t";
-            }
-            $_parent = $context['_parent'];
-            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['ticketlist'], $context['_parent'], $context['loop']);
-            $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 338
-            echo "\t
-\t\t\t\t
-\t\t\t\t";
-            // line 340
-            $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable((isset($context["ticketlists"]) || array_key_exists("ticketlists", $context) ? $context["ticketlists"] : (function () { throw new RuntimeError('Variable "ticketlists" does not exist.', 340, $this->source); })()));
-            foreach ($context['_seq'] as $context["_key"] => $context["ticketlist"]) {
-                // line 341
-                echo "\t\t\t\t\t";
-                if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["ticketlist"], "tag", [], "any", false, false, false, 341), (isset($context["tag"]) || array_key_exists("tag", $context) ? $context["tag"] : (function () { throw new RuntimeError('Variable "tag" does not exist.', 341, $this->source); })()))) {
-                    // line 342
-                    echo "\t\t\t\t\t\t";
-                    if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["ticketlist"], "status", [], "any", false, false, false, 342), "open")) {
-                        // line 343
-                        echo "
-\t\t\t\t\t\t";
-                    } else {
-                        // line 345
-                        echo "\t\t\t\t\t\t\t<p>votre ticket a été fermé, si vous souhaitez contacter de nouveau le support veiller <a href=\"/ticket\">refaire un ticket<a></p>
-\t\t\t\t\t\t";
-                    }
-                    // line 347
-                    echo "\t\t\t\t\t";
-                }
-                // line 348
-                echo "\t\t\t\t";
-            }
-            $_parent = $context['_parent'];
-            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['ticketlist'], $context['_parent'], $context['loop']);
-            $context = array_intersect_key($context, $_parent) + $_parent;
-            echo "\t
-\t\t\t\t
+            // line 256
+            echo             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 256, $this->source); })()), 'form_start');
+            echo "
 
-\t\t\t\t
+\t\t\t\t";
+            // line 258
+            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 258, $this->source); })()), "text", [], "any", false, false, false, 258), 'row', ["attr" => ["placeholder" => "Ecrire un message...", "class" => "form-control"]]);
+            echo "
+\t\t\t\t<button type=\"submit\" class=\"btn btn-success\">Envoyer le message</button>
+\t\t\t\t";
+            // line 260
+            echo             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 260, $this->source); })()), 'form_end');
+            echo "\t
+\t\t\t\t\t
 \t\t\t\t
 
 \t\t\t\t\t
-              </div>
+
             </div>
           </div>
         </div>
-      </div>
+
     </div>
 
+      <!-- End of Footer -->
 
+ 
+
+  <!-- Bootstrap core JavaScript-->
   <script src=\"https://localhost:8000/vendor/jquery/jquery.min.js\"></script>
   <script src=\"https://localhost:8000/vendor/bootstrap/js/bootstrap.bundle.min.js\"></script>
 
@@ -525,13 +367,26 @@ body{
   <!-- Page level custom scripts -->
   <script src=\"https://localhost:8000/js/demo/chart-area-demo.js\"></script>
   <script src=\"https://localhost:8000/js/demo/chart-pie-demo.js\"></script>
-  ";
-        }
-        
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
+</body>
+
+</html>   
+\t\t
+";
+        } else {
+            // line 298
+            echo "<p style=\"color:red\">vous n'êtes pas client</p>
+";
+        }
+        // line 300
+        echo "
+\t\t
+";
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
+
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
     }
 
@@ -547,21 +402,34 @@ body{
 
     public function getDebugInfo()
     {
-        return array (  493 => 348,  490 => 347,  486 => 345,  482 => 343,  479 => 342,  476 => 341,  472 => 340,  468 => 338,  462 => 337,  457 => 335,  452 => 333,  446 => 331,  443 => 330,  439 => 329,  434 => 326,  424 => 322,  419 => 320,  413 => 316,  409 => 314,  405 => 312,  403 => 311,  400 => 310,  396 => 309,  387 => 302,  385 => 301,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  382 => 300,  378 => 298,  337 => 260,  332 => 258,  327 => 256,  321 => 252,  315 => 251,  308 => 247,  303 => 245,  295 => 239,  288 => 235,  277 => 227,  274 => 226,  270 => 225,  45 => 2,  43 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("{% extends 'base.html.twig' %}
+        return new Source("{% if app.user.role == \"0\" %}
+<html lang=\"fr\">
 
-{% block title %}Troubleshooting - Dépannage informatique en ligne{% endblock %}
+<head>
 
-{% block body %}
+  <meta charset=\"utf-8\">
+  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">
+  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">
+  <meta name=\"description\" content=\"\">
+  <meta name=\"author\" content=\"\">
+
+  <title>SB Admin 2 - Dashboard</title>
+
+  <!-- Custom fonts for this template-->
+  <link href=\"https://localhost:8000/vendor/fontawesome-free/css/all.min.css\" rel=\"stylesheet\" type=\"text/css\">
+  <link href=\"https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i\" rel=\"stylesheet\">
+
+  <!-- Custom styles for this template-->
+  <link href=\"https://localhost:8000/css/sb-admin-2.min.css\" rel=\"stylesheet\">
+
+</head> 
 <style>
-body{
-    margin-top:20px;
-    background:#eee;
-}
+
 .row.row-broken {
     padding-bottom: 0;
 }
@@ -741,108 +609,12 @@ body{
     color: #333333;
 }
 
-/**************ADD FORM ***************/
-.chat-body .answer-add {
-    clear: both;
-    position: relative;
-    margin: 20px -20px -20px;
-    padding: 20px;
-    background: #46be8a;
-}
-.chat-body .answer-add input {
-    border: none;
-    background: none;
-    display: block;
-    width: 100%;
-    font-size: 16px;
-    line-height: 20px;
-    padding: 0;
-    color: #ffffff;
-}
-.chat input {
-    -webkit-appearance: none;
-    border-radius: 0;
-}
-.chat-body .answer-add .answer-btn-1 {
-    background: url(\"http://91.234.35.26/iwiki-admin/v1.0.0/admin/img/icon-40.png\") 50% 50% no-repeat;
-    right: 56px;
-}
-.chat-body .answer-add .answer-btn {
-    display: block;
-    cursor: pointer;
-    width: 36px;
-    height: 36px;
-    position: absolute;
-    top: 50%;
-    margin-top: -18px;
-}
-.chat-body .answer-add .answer-btn-2 {
-    background: url(\"http://91.234.35.26/iwiki-admin/v1.0.0/admin/img/icon-41.png\") 50% 50% no-repeat;
-    right: 20px;
-}
-.chat input::-webkit-input-placeholder {
-   color: #fff;
-}
 
-.chat input:-moz-placeholder { /* Firefox 18- */
-   color: #fff;  
-}
-
-.chat input::-moz-placeholder {  /* Firefox 19+ */
-   color: #fff;  
-}
-
-.chat input:-ms-input-placeholder {  
-   color: #fff;  
-}
-.chat input {
-    -webkit-appearance: none;
-    border-radius: 0;
-}
-
-.select-style {
-    padding: 0;
-    margin: 0;
-    border: 1px solid #ccc;
-    width: 120px;
-    border-radius: 3px;
-    overflow: hidden;
-    background-color: #fff;
-    background: #fff;
-    position: relative;
-}
-.select-style select {
-    padding: 5px 8px;
-    width: 130%;
-    border: none;
-    box-shadow: none;
-    background-color: transparent;
-    background-image: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-}
-.select-style:after {
-    top: 50%;
-    left: 85%;
-    border: solid transparent;
-    content: \" \";
-    height: 0;
-    width: 0;
-    position: absolute;
-    pointer-events: none;
-    border-color: rgba(0, 0, 0, 0);
-    border-top-color: #000000;
-    border-width: 5px;
-    margin-top: -2px;
-    z-index: 100;
-}
-.select-style select:focus {
-    outline: none;
-}
 </style>
+<body id=\"page-top\">
 
-
+  <!-- Page Wrapper -->
+  <div id=\"wrapper\">
 
 
 <link href=\"//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css\" rel=\"stylesheet\" id=\"bootstrap-css\">
@@ -852,68 +624,65 @@ body{
 
 <link href=\"https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css\" rel=\"stylesheet\">
 <script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.6.8-fix/jquery.nicescroll.min.js\"></script>
-{% if form is defined %}
 <div class=\"content container-fluid bootstrap snippets\">
       <div class=\"row row-broken\">
         <div class=\"col-sm-12 col-xs-12 chat\" style=\"outline: none;\" tabindex=\"5001\">
           <div class=\"col-inside-lg decor-default\">
           
 
-\t\t\t<div class=\"chat-body\">
-\t\t{% for openticket in opentickets %}
+            \t\t\t<div class=\"chat-body\">
+            \t{% for openticket in opentickets %}
+            
+            \t\t{% if openticket.user != IdUser %}\t\t
+            \t\t\t\t<div class=\"answer right\">
+                           <div class=\"avatar\">
+                             <img src=\"https://bootdey.com/img/Content/avatar/avatar1.png\" alt=\"User name\">
+                             <div class=\"status online\"></div>
+                           </div>
+                           <div class=\"name\">Assistance</div>
+                           <div class=\"text\">
+                             {{openticket.text}}
+                           </div>
+                          </div>
+            \t\t{% else %}
+            \t\t\t\t<div class=\"answer left\">
+            \t\t
+                           <div class=\"avatar\">
+                             <img src=\"https://bootdey.com/img/Content/avatar/avatar1.png\" alt=\"User name\">
+                             <div class=\"status online\"></div>
+                           </div>
+                           <div class=\"name\">{{ NameUser }}</div>
+                           <div class=\"text\">
+                             {{openticket.text}}
+                           </div>
+                          </div>
+            \t\t{% endif %}
+            \t{% endfor %}
 
-\t\t{% if openticket.name == \"admin@troubleshooting.com\" or openticket.name == \"service@troubleshooting.com\" %}
-\t\t\t\t<div class=\"answer right\">
-\t\t{% else %}
-\t\t\t\t<div class=\"answer left\">
-\t\t{% endif %}
-               <div class=\"avatar\">
-                 <img src=\"https://bootdey.com/img/Content/avatar/avatar1.png\" alt=\"User name\">
-                 <div class=\"status offline\"></div>
-               </div>
-               <div class=\"name\">{{ openticket.name }}</div>
-               <div class=\"text\">
-                 {{openticket.text}}
-               </div>
-              </div>
-\t\t{% endfor %}
 
 
-              <div class=\"answer-add\">
-\t{% for ticketlist in ticketlists %}
-\t\t{% if ticketlist.status == \"open\" %}
+
 \t\t\t\t{{ form_start(form) }}
 
 \t\t\t\t{{ form_row(form.text, { 'attr': {'placeholder':'Ecrire un message...', 'class':'form-control'} }) }}
-\t\t\t\t\t<button type=\"submit\" class=\"btn btn-success\">Envoyer le message</button>
-\t\t\t\t{{ form_end(form) }}
-\t\t{% endif %}
-\t{% endfor %}
-\t
-\t\t\t\t
-\t\t\t\t{% for ticketlist in ticketlists %}
-\t\t\t\t\t{% if ticketlist.tag == tag %}
-\t\t\t\t\t\t{% if ticketlist.status == \"open\" %}
-
-\t\t\t\t\t\t{% else %}
-\t\t\t\t\t\t\t<p>votre ticket a été fermé, si vous souhaitez contacter de nouveau le support veiller <a href=\"/ticket\">refaire un ticket<a></p>
-\t\t\t\t\t\t{% endif %}
-\t\t\t\t\t{% endif %}
-\t\t\t\t{% endfor %}\t
-\t\t\t\t
-
-\t\t\t\t
+\t\t\t\t<button type=\"submit\" class=\"btn btn-success\">Envoyer le message</button>
+\t\t\t\t{{ form_end(form) }}\t
+\t\t\t\t\t
 \t\t\t\t
 
 \t\t\t\t\t
-              </div>
+
             </div>
           </div>
         </div>
-      </div>
+
     </div>
 
+      <!-- End of Footer -->
 
+ 
+
+  <!-- Bootstrap core JavaScript-->
   <script src=\"https://localhost:8000/vendor/jquery/jquery.min.js\"></script>
   <script src=\"https://localhost:8000/vendor/bootstrap/js/bootstrap.bundle.min.js\"></script>
 
@@ -929,8 +698,16 @@ body{
   <!-- Page level custom scripts -->
   <script src=\"https://localhost:8000/js/demo/chart-area-demo.js\"></script>
   <script src=\"https://localhost:8000/js/demo/chart-pie-demo.js\"></script>
-  {% endif %}
-{% endblock %}
+
+</body>
+
+</html>   
+\t\t
+{% else %}
+<p style=\"color:red\">vous n'êtes pas client</p>
+{% endif %}
+
+\t\t
 ", "main/myticketID.html.twig", "C:\\Users\\moi\\Documents\\Symfony\\troubleshooting\\troubleshooting\\templates\\main\\myticketID.html.twig");
     }
 }

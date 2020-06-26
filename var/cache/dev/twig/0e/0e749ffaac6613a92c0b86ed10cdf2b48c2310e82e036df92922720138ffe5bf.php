@@ -119,7 +119,7 @@ class __TwigTemplate_cf2f0d06cf7258dc86af9529e21ac182734118af76298cf1d4119e7c28e
 
     public function getSourceContext()
     {
-        return new Source("{% extends 'base.html.twig' %}
+        return new Source("{% extends 'base.html.twig' %} 
 
 {% block title %}Troubleshooting - Dépannage informatique en ligne{% endblock %}
 

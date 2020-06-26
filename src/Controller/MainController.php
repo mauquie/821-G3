@@ -163,7 +163,7 @@ class MainController extends AbstractController
 
 		}else{
 			$repoTalkTicket = $this->getDoctrine()->getRepository(Chat::class);
-			$opentickets = $repoTalkTicket->findBy(array('tag' => $id));
+			$opentickets = $repoTalkTicket->findBy(array('id' => $id));
 			$form = $this->createForm(TalkticketType::class, $Chat);
 			$form->handleRequest($request);
 			$formTicket = $this->createForm(TicketStatusType::class, $Ticket);
@@ -287,10 +287,11 @@ class MainController extends AbstractController
         
         if($form->isSubmitted() && $form->isValid()) //si le form est envoyé:
         {
-            
-            
+			$repoTicket = $this->getDoctrine()->getRepository(Tickets::class);
+			$GetEntityId = $repoTicket->find($id);
+
             $Chat->setUser($user);
-            $Chat->setTicket($id);
+            $Chat->setTicket($GetEntityId);
             
             $manager->persist($Chat); //persiste l’info dans le temps
             $manager->flush(); //envoie les info à la BDD
