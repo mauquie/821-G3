@@ -2,10 +2,11 @@
 
 namespace App\Form;
 
-use App\Entity\Talkticket;
+use App\Entity\Chat;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 
 class TalkticketType extends AbstractType
 {
@@ -13,14 +14,13 @@ class TalkticketType extends AbstractType
     {
         $builder
             ->add('text', null, array('label' => false))
-
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Talkticket::class,
+            'data_class' => Chat::class,
         ]);
     }
 }

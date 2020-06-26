@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\Talkticket;
+use App\Entity\Tickets;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method Talkticket|null find($id, $lockMode = null, $lockVersion = null)
- * @method Talkticket|null findOneBy(array $criteria, array $orderBy = null)
- * @method Talkticket[]    findAll()
- * @method Talkticket[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Tickets|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Tickets|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Tickets[]    findAll()
+ * @method Tickets[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class TalkticketRepository extends ServiceEntityRepository
+class TicketsRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Talkticket::class);
+        parent::__construct($registry, Tickets::class);
     }
 
     // /**
-    //  * @return Talkticket[] Returns an array of Talkticket objects
+    //  * @return Tickets[] Returns an array of Tickets objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class TalkticketRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Talkticket
+    public function findOneBySomeField($value): ?Tickets
     {
         return $this->createQueryBuilder('t')
             ->andWhere('t.exampleField = :val')

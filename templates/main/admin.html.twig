@@ -382,6 +382,7 @@
                 <div class="card-header py-3">
                   <h6 class="m-0 font-weight-bold text-primary">avis clients</h6>
                 </div>
+                
                 <div class="card-body">
                   <h4 class="small font-weight-bold">Clients satisfaits <span class="float-right">{{ satisfied }}%</span></h4>
                   <div class="progress mb-4">
@@ -411,13 +412,16 @@
 						<div class="col-md-3">
 							<p>{{ticket.title}}</p>
 						</div>
-						<div class="col-md-4">
-							<p>{{ticket.userRequest}}</p>
-						</div>
-						<div class="col-md-4">
-							<p>{{ticket.status}}</p>
 
-							<a href="/serviceticket/{{ticket.id}}" role="button" class="btn btn-success">Voir le ticket</a>
+						<div class="col-md-4">
+							{%   if ticket.status == 1 %}
+								<p>open</p>
+							{% else %}
+								<p>close</p>
+							{% endif %}
+							
+
+							<a href="/adminticket/{{ticket.id}}" role="button" class="btn btn-success">Voir le ticket</a>
 						</div>
 					</div>
 					<hr>

@@ -6,7 +6,7 @@
 use Symfony\Component\DependencyInjection\Dumper\Preloader;
 
 require dirname(__DIR__, 3).'\\vendor/autoload.php';
-require __DIR__.'/Container2ClxrnF/App_KernelDevDebugContainer.php';
+require __DIR__.'/ContainerU3cJBvD/App_KernelDevDebugContainer.php';
 
 $classes = [];
 $classes[] = 'Symfony\Bundle\FrameworkBundle\FrameworkBundle';
@@ -33,8 +33,8 @@ $classes[] = 'App\Form\RegistrationType';
 $classes[] = 'App\Form\TalkticketType';
 $classes[] = 'App\Form\TicketStatusType';
 $classes[] = 'App\Form\TicketType';
-$classes[] = 'App\Repository\TalkticketRepository';
-$classes[] = 'App\Repository\TicketListRepository';
+$classes[] = 'App\Repository\ChatRepository';
+$classes[] = 'App\Repository\TicketsRepository';
 $classes[] = 'App\Repository\UserRepository';
 $classes[] = 'Symfony\Bundle\FrameworkBundle\Controller\RedirectController';
 $classes[] = 'Symfony\Bundle\FrameworkBundle\Controller\TemplateController';

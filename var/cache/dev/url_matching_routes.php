@@ -41,7 +41,8 @@ return [
                     .')'
                 .')'
                 .'|/myticket/([^/]++)(*:187)'
-                .'|/serviceticket/([^/]++)(*:218)'
+                .'|/adminticket/([^/]++)(*:216)'
+                .'|/serviceticket/([^/]++)(*:247)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -53,8 +54,9 @@ return [
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
         187 => [[['_route' => 'myticketID', '_controller' => 'App\\Controller\\MainController::myticketID'], ['id'], null, null, false, true, null]],
-        218 => [
-            [['_route' => 'adminticket', '_controller' => 'App\\Controller\\MainController::serviceticket'], ['id'], null, null, false, true, null],
+        216 => [[['_route' => 'adminticket', '_controller' => 'App\\Controller\\MainController::adminticket'], ['id'], null, null, false, true, null]],
+        247 => [
+            [['_route' => 'serviceticket', '_controller' => 'App\\Controller\\MainController::serviceticket'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

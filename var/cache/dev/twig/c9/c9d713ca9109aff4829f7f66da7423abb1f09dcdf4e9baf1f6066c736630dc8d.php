@@ -478,25 +478,26 @@ class __TwigTemplate_bb5b833816c459604b03f9f4abe0823257b79a80e653811251d256a1cd9
                 <div class=\"card-header py-3\">
                   <h6 class=\"m-0 font-weight-bold text-primary\">avis clients</h6>
                 </div>
+                
                 <div class=\"card-body\">
                   <h4 class=\"small font-weight-bold\">Clients satisfaits <span class=\"float-right\">";
-            // line 386
-            echo twig_escape_filter($this->env, (isset($context["satisfied"]) || array_key_exists("satisfied", $context) ? $context["satisfied"] : (function () { throw new RuntimeError('Variable "satisfied" does not exist.', 386, $this->source); })()), "html", null, true);
+            // line 387
+            echo twig_escape_filter($this->env, (isset($context["satisfied"]) || array_key_exists("satisfied", $context) ? $context["satisfied"] : (function () { throw new RuntimeError('Variable "satisfied" does not exist.', 387, $this->source); })()), "html", null, true);
             echo "%</span></h4>
                   <div class=\"progress mb-4\">
                     <div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: ";
-            // line 388
-            echo twig_escape_filter($this->env, (isset($context["satisfied"]) || array_key_exists("satisfied", $context) ? $context["satisfied"] : (function () { throw new RuntimeError('Variable "satisfied" does not exist.', 388, $this->source); })()), "html", null, true);
+            // line 389
+            echo twig_escape_filter($this->env, (isset($context["satisfied"]) || array_key_exists("satisfied", $context) ? $context["satisfied"] : (function () { throw new RuntimeError('Variable "satisfied" does not exist.', 389, $this->source); })()), "html", null, true);
             echo "%\" aria-valuenow=\"40\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>
                   </div>
                   <h4 class=\"small font-weight-bold\">Clients mécontants <span class=\"float-right\">";
-            // line 390
-            echo twig_escape_filter($this->env, (isset($context["discontent"]) || array_key_exists("discontent", $context) ? $context["discontent"] : (function () { throw new RuntimeError('Variable "discontent" does not exist.', 390, $this->source); })()), "html", null, true);
+            // line 391
+            echo twig_escape_filter($this->env, (isset($context["discontent"]) || array_key_exists("discontent", $context) ? $context["discontent"] : (function () { throw new RuntimeError('Variable "discontent" does not exist.', 391, $this->source); })()), "html", null, true);
             echo "%</span></h4>
                   <div class=\"progress mb-4\">
                     <div class=\"progress-bar bg-danger\" role=\"progressbar\" style=\"width: ";
-            // line 392
-            echo twig_escape_filter($this->env, (isset($context["discontent"]) || array_key_exists("discontent", $context) ? $context["discontent"] : (function () { throw new RuntimeError('Variable "discontent" does not exist.', 392, $this->source); })()), "html", null, true);
+            // line 393
+            echo twig_escape_filter($this->env, (isset($context["discontent"]) || array_key_exists("discontent", $context) ? $context["discontent"] : (function () { throw new RuntimeError('Variable "discontent" does not exist.', 393, $this->source); })()), "html", null, true);
             echo "%\" aria-valuenow=\"40\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>
                   </div>
                 </div>
@@ -515,33 +516,37 @@ class __TwigTemplate_bb5b833816c459604b03f9f4abe0823257b79a80e653811251d256a1cd9
 \t\t\t\t
 \t\t\t\t<div class=\"container\">
 \t\t\t\t";
-            // line 409
+            // line 410
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable((isset($context["tickets"]) || array_key_exists("tickets", $context) ? $context["tickets"] : (function () { throw new RuntimeError('Variable "tickets" does not exist.', 409, $this->source); })()));
+            $context['_seq'] = twig_ensure_traversable((isset($context["tickets"]) || array_key_exists("tickets", $context) ? $context["tickets"] : (function () { throw new RuntimeError('Variable "tickets" does not exist.', 410, $this->source); })()));
             foreach ($context['_seq'] as $context["_key"] => $context["ticket"]) {
-                // line 410
+                // line 411
                 echo "\t\t\t\t\t<div class=\"row\">
 \t\t\t\t\t\t<div class=\"col-md-3\">
 \t\t\t\t\t\t\t<p>";
-                // line 412
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ticket"], "title", [], "any", false, false, false, 412), "html", null, true);
+                // line 413
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ticket"], "title", [], "any", false, false, false, 413), "html", null, true);
                 echo "</p>
 \t\t\t\t\t\t</div>
-\t\t\t\t\t\t<div class=\"col-md-4\">
-\t\t\t\t\t\t\t<p>";
-                // line 415
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ticket"], "userRequest", [], "any", false, false, false, 415), "html", null, true);
-                echo "</p>
-\t\t\t\t\t\t</div>
-\t\t\t\t\t\t<div class=\"col-md-4\">
-\t\t\t\t\t\t\t<p>";
-                // line 418
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ticket"], "status", [], "any", false, false, false, 418), "html", null, true);
-                echo "</p>
 
-\t\t\t\t\t\t\t<a href=\"/serviceticket/";
-                // line 420
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ticket"], "id", [], "any", false, false, false, 420), "html", null, true);
+\t\t\t\t\t\t<div class=\"col-md-4\">
+\t\t\t\t\t\t\t";
+                // line 417
+                if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["ticket"], "status", [], "any", false, false, false, 417), 1)) {
+                    // line 418
+                    echo "\t\t\t\t\t\t\t\t<p>open</p>
+\t\t\t\t\t\t\t";
+                } else {
+                    // line 420
+                    echo "\t\t\t\t\t\t\t\t<p>close</p>
+\t\t\t\t\t\t\t";
+                }
+                // line 422
+                echo "\t\t\t\t\t\t\t
+
+\t\t\t\t\t\t\t<a href=\"/adminticket/";
+                // line 424
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ticket"], "id", [], "any", false, false, false, 424), "html", null, true);
                 echo "\" role=\"button\" class=\"btn btn-success\">Voir le ticket</a>
 \t\t\t\t\t\t</div>
 \t\t\t\t\t</div>
@@ -551,7 +556,7 @@ class __TwigTemplate_bb5b833816c459604b03f9f4abe0823257b79a80e653811251d256a1cd9
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['ticket'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 425
+            // line 429
             echo "\t\t\t\t</div>
 
                 </div>
@@ -629,11 +634,11 @@ class __TwigTemplate_bb5b833816c459604b03f9f4abe0823257b79a80e653811251d256a1cd9
 \t\t
 ";
         } else {
-            // line 501
+            // line 505
             echo "<p style=\"color:red\">vous n'êtes pas administrateur</p>
 ";
         }
-        // line 503
+        // line 507
         echo "
 \t\t
 \t\t
@@ -658,7 +663,7 @@ class __TwigTemplate_bb5b833816c459604b03f9f4abe0823257b79a80e653811251d256a1cd9
 
     public function getDebugInfo()
     {
-        return array (  637 => 503,  633 => 501,  555 => 425,  544 => 420,  539 => 418,  533 => 415,  527 => 412,  523 => 410,  519 => 409,  499 => 392,  494 => 390,  489 => 388,  484 => 386,  461 => 366,  454 => 362,  449 => 360,  444 => 358,  439 => 356,  434 => 354,  429 => 352,  398 => 324,  378 => 307,  355 => 287,  348 => 283,  296 => 234,  70 => 10,  63 => 8,  60 => 7,  57 => 6,  53 => 5,  50 => 4,  48 => 3,  45 => 2,  43 => 1,);
+        return array (  642 => 507,  638 => 505,  560 => 429,  549 => 424,  545 => 422,  541 => 420,  537 => 418,  535 => 417,  528 => 413,  524 => 411,  520 => 410,  500 => 393,  495 => 391,  490 => 389,  485 => 387,  461 => 366,  454 => 362,  449 => 360,  444 => 358,  439 => 356,  434 => 354,  429 => 352,  398 => 324,  378 => 307,  355 => 287,  348 => 283,  296 => 234,  70 => 10,  63 => 8,  60 => 7,  57 => 6,  53 => 5,  50 => 4,  48 => 3,  45 => 2,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -1047,6 +1052,7 @@ class __TwigTemplate_bb5b833816c459604b03f9f4abe0823257b79a80e653811251d256a1cd9
                 <div class=\"card-header py-3\">
                   <h6 class=\"m-0 font-weight-bold text-primary\">avis clients</h6>
                 </div>
+                
                 <div class=\"card-body\">
                   <h4 class=\"small font-weight-bold\">Clients satisfaits <span class=\"float-right\">{{ satisfied }}%</span></h4>
                   <div class=\"progress mb-4\">
@@ -1076,13 +1082,16 @@ class __TwigTemplate_bb5b833816c459604b03f9f4abe0823257b79a80e653811251d256a1cd9
 \t\t\t\t\t\t<div class=\"col-md-3\">
 \t\t\t\t\t\t\t<p>{{ticket.title}}</p>
 \t\t\t\t\t\t</div>
-\t\t\t\t\t\t<div class=\"col-md-4\">
-\t\t\t\t\t\t\t<p>{{ticket.userRequest}}</p>
-\t\t\t\t\t\t</div>
-\t\t\t\t\t\t<div class=\"col-md-4\">
-\t\t\t\t\t\t\t<p>{{ticket.status}}</p>
 
-\t\t\t\t\t\t\t<a href=\"/serviceticket/{{ticket.id}}\" role=\"button\" class=\"btn btn-success\">Voir le ticket</a>
+\t\t\t\t\t\t<div class=\"col-md-4\">
+\t\t\t\t\t\t\t{%   if ticket.status == 1 %}
+\t\t\t\t\t\t\t\t<p>open</p>
+\t\t\t\t\t\t\t{% else %}
+\t\t\t\t\t\t\t\t<p>close</p>
+\t\t\t\t\t\t\t{% endif %}
+\t\t\t\t\t\t\t
+
+\t\t\t\t\t\t\t<a href=\"/adminticket/{{ticket.id}}\" role=\"button\" class=\"btn btn-success\">Voir le ticket</a>
 \t\t\t\t\t\t</div>
 \t\t\t\t\t</div>
 \t\t\t\t\t<hr>

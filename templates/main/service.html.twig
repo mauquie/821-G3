@@ -1,4 +1,4 @@
-{% if app.user.role == "1" or app.user.role == "2" %}
+{% if app.user.role == "1" %}
 
 {% set TicketEnCours = 0 %}
 
@@ -368,10 +368,11 @@
 							<p>{{ticket.title}}</p>
 						</div>
 						<div class="col-md-4">
-							<p>{{ticket.userRequest}}</p>
-						</div>
-						<div class="col-md-4">
-							<p>{{ticket.status}}</p>
+							{%   if ticket.status == 1 %}
+								<p>open</p>
+							{% else %}
+								<p>close</p>
+							{% endif %}
 
 							<a href="/serviceticket/{{ticket.id}}" role="button" class="btn btn-success">Voir le ticket</a>
 						</div>

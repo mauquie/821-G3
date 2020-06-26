@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -25,12 +27,12 @@ class User implements UserInterface
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=180)
      */
     private $email;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=30)
      */
     private $username;
 
@@ -44,9 +46,25 @@ class User implements UserInterface
     public $confirm_password;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="integer")
      */
     private $role;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Tickets", mappedBy="user")
+     */
+    private $tickets;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Chat", mappedBy="user")
+     */
+    private $chats;
+
+    public function __construct()
+    {
+        $this->tickets = new ArrayCollection();
+        $this->chats = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -92,9 +110,9 @@ class User implements UserInterface
 	
 	
 	public function eraseCredentials()
-             {
-         
-             }
+                                                    {
+                                                
+                                                    }
 	
 		public function getsalt()
     {
@@ -106,7 +124,7 @@ class User implements UserInterface
 		return ['ROLE_USER'];
     }
 
-  public function getRole(): ?string
+  public function getRole(): ?int
   {
       return $this->role;
   }
@@ -114,6 +132,68 @@ class User implements UserInterface
   public function setRole(string $role): self
   {
       $this->role = $role;
+
+      return $this;
+  }
+
+  /**
+   * @return Collection|Tickets[]
+   */
+  public function getTickets(): Collection
+  {
+      return $this->tickets;
+  }
+
+  public function addTicket(Tickets $ticket): self
+  {
+      if (!$this->tickets->contains($ticket)) {
+          $this->tickets[] = $ticket;
+          $ticket->setUser($this);
+      }
+
+      return $this;
+  }
+
+  public function removeTicket(Tickets $ticket): self
+  {
+      if ($this->tickets->contains($ticket)) {
+          $this->tickets->removeElement($ticket);
+          // set the owning side to null (unless already changed)
+          if ($ticket->getUser() === $this) {
+              $ticket->setUser(null);
+          }
+      }
+
+      return $this;
+  }
+
+  /**
+   * @return Collection|Chat[]
+   */
+  public function getChats(): Collection
+  {
+      return $this->chats;
+  }
+
+  public function addChat(Chat $chat): self
+  {
+      if (!$this->chats->contains($chat)) {
+          $this->chats[] = $chat;
+          $chat->setUser($this);
+      }
+
+      return $this;
+  }
+
+  public function removeChat(Chat $chat): self
+  {
+      if ($this->chats->contains($chat)) {
+          $this->chats->removeElement($chat);
+          // set the owning side to null (unless already changed)
+          if ($chat->getUser() === $this) {
+              $chat->setUser(null);
+          }
+      }
 
       return $this;
   }

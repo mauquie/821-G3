@@ -40,7 +40,7 @@ class __TwigTemplate_a0b188dcf28b5908917cd4dc74a8a8650b39b8556a8edf91daac9360201
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "main/adminticket.html.twig"));
 
         // line 1
-        if (0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 1, $this->source); })()), "user", [], "any", false, false, false, 1), "email", [], "any", false, false, false, 1), "admin@troubleshooting.com")) {
+        if (0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 1, $this->source); })()), "user", [], "any", false, false, false, 1), "role", [], "any", false, false, false, 1), "2")) {
             // line 2
             echo "<html lang=\"fr\">
 
@@ -270,6 +270,8 @@ class __TwigTemplate_a0b188dcf28b5908917cd4dc74a8a8650b39b8556a8edf91daac9360201
           <i class=\"fas fa-fw fa-tachometer-alt\"></i>
           <span>Dashboard</span></a>
       </li>
+\t  
+\t 
 
       <!-- Divider -->
       <hr class=\"sidebar-divider\">
@@ -305,63 +307,77 @@ class __TwigTemplate_a0b188dcf28b5908917cd4dc74a8a8650b39b8556a8edf91daac9360201
           
 
 \t\t\t<div class=\"chat-body\">
-\t\t";
-            // line 265
+               ";
+            // line 267
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable((isset($context["opentickets"]) || array_key_exists("opentickets", $context) ? $context["opentickets"] : (function () { throw new RuntimeError('Variable "opentickets" does not exist.', 265, $this->source); })()));
+            $context['_seq'] = twig_ensure_traversable((isset($context["opentickets"]) || array_key_exists("opentickets", $context) ? $context["opentickets"] : (function () { throw new RuntimeError('Variable "opentickets" does not exist.', 267, $this->source); })()));
             foreach ($context['_seq'] as $context["_key"] => $context["openticket"]) {
-                // line 266
-                echo "
-\t\t";
-                // line 267
-                if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["openticket"], "name", [], "any", false, false, false, 267), "admin@troubleshooting.com")) {
+                // line 268
+                echo "            
+            \t\t";
+                // line 269
+                if (0 !== twig_compare(twig_get_attribute($this->env, $this->source, $context["openticket"], "user", [], "any", false, false, false, 269), (isset($context["IdUser"]) || array_key_exists("IdUser", $context) ? $context["IdUser"] : (function () { throw new RuntimeError('Variable "IdUser" does not exist.', 269, $this->source); })()))) {
                     echo "\t\t
-\t\t\t\t<div class=\"answer right\">
-\t\t";
+            \t\t\t\t<div class=\"answer right\">
+                           <div class=\"avatar\">
+                             <img src=\"https://bootdey.com/img/Content/avatar/avatar1.png\" alt=\"User name\">
+                             <div class=\"status online\"></div>
+                           </div>
+                           <div class=\"name\">Admin</div>
+                           <div class=\"text\">
+                             ";
+                    // line 277
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["openticket"], "text", [], "any", false, false, false, 277), "html", null, true);
+                    echo "
+                           </div>
+                          </div>
+            \t\t";
                 } else {
-                    // line 270
-                    echo "\t\t\t\t<div class=\"answer left\">
-\t\t";
+                    // line 281
+                    echo "            \t\t\t\t<div class=\"answer left\">
+            \t\t
+                           <div class=\"avatar\">
+                             <img src=\"https://bootdey.com/img/Content/avatar/avatar1.png\" alt=\"User name\">
+                             <div class=\"status online\"></div>
+                           </div>
+                           <div class=\"name\">";
+                    // line 287
+                    echo twig_escape_filter($this->env, (isset($context["NameUser"]) || array_key_exists("NameUser", $context) ? $context["NameUser"] : (function () { throw new RuntimeError('Variable "NameUser" does not exist.', 287, $this->source); })()), "html", null, true);
+                    echo "</div>
+                           <div class=\"text\">
+                             ";
+                    // line 289
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["openticket"], "text", [], "any", false, false, false, 289), "html", null, true);
+                    echo "
+                           </div>
+                          </div>
+            \t\t";
                 }
-                // line 272
-                echo "               <div class=\"avatar\">
-                 <img src=\"https://bootdey.com/img/Content/avatar/avatar1.png\" alt=\"User name\">
-                 <div class=\"status offline\"></div>
-               </div>
-               <div class=\"name\">";
-                // line 276
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["openticket"], "name", [], "any", false, false, false, 276), "html", null, true);
-                echo "</div>
-               <div class=\"text\">
-                 ";
-                // line 278
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["openticket"], "text", [], "any", false, false, false, 278), "html", null, true);
-                echo "
-               </div>
-              </div>
-\t\t";
+                // line 293
+                echo "            \t";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['openticket'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 282
+            // line 294
             echo "
 
 
 
+
 \t\t\t\t";
-            // line 286
-            echo             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 286, $this->source); })()), 'form_start');
+            // line 299
+            echo             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 299, $this->source); })()), 'form_start');
             echo "
 
 \t\t\t\t";
-            // line 288
-            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 288, $this->source); })()), "text", [], "any", false, false, false, 288), 'row', ["attr" => ["placeholder" => "Ecrire un message...", "class" => "form-control"]]);
+            // line 301
+            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 301, $this->source); })()), "text", [], "any", false, false, false, 301), 'row', ["attr" => ["placeholder" => "Ecrire un message...", "class" => "form-control"]]);
             echo "
 \t\t\t\t<button type=\"submit\" class=\"btn btn-success\">Envoyer le message</button>
 \t\t\t\t";
-            // line 290
-            echo             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 290, $this->source); })()), 'form_end');
+            // line 303
+            echo             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 303, $this->source); })()), 'form_end');
             echo "\t
 \t\t\t\t\t
 
@@ -398,11 +414,11 @@ class __TwigTemplate_a0b188dcf28b5908917cd4dc74a8a8650b39b8556a8edf91daac9360201
 \t\t
 ";
         } else {
-            // line 325
+            // line 338
             echo "<p style=\"color:red\">vous n'êtes pas administrateur</p>
 ";
         }
-        // line 327
+        // line 340
         echo "
 \t\t
 \t\t
@@ -427,12 +443,12 @@ class __TwigTemplate_a0b188dcf28b5908917cd4dc74a8a8650b39b8556a8edf91daac9360201
 
     public function getDebugInfo()
     {
-        return array (  406 => 327,  402 => 325,  364 => 290,  359 => 288,  354 => 286,  348 => 282,  338 => 278,  333 => 276,  327 => 272,  323 => 270,  317 => 267,  314 => 266,  310 => 265,  45 => 2,  43 => 1,);
+        return array (  422 => 340,  418 => 338,  380 => 303,  375 => 301,  370 => 299,  363 => 294,  357 => 293,  350 => 289,  345 => 287,  337 => 281,  330 => 277,  319 => 269,  316 => 268,  312 => 267,  45 => 2,  43 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("{% if app.user.email == \"admin@troubleshooting.com\" %}
+        return new Source("{% if app.user.role == \"2\" %}
 <html lang=\"fr\">
 
 <head>
@@ -661,6 +677,8 @@ class __TwigTemplate_a0b188dcf28b5908917cd4dc74a8a8650b39b8556a8edf91daac9360201
           <i class=\"fas fa-fw fa-tachometer-alt\"></i>
           <span>Dashboard</span></a>
       </li>
+\t  
+\t 
 
       <!-- Divider -->
       <hr class=\"sidebar-divider\">
@@ -696,23 +714,34 @@ class __TwigTemplate_a0b188dcf28b5908917cd4dc74a8a8650b39b8556a8edf91daac9360201
           
 
 \t\t\t<div class=\"chat-body\">
-\t\t{% for openticket in opentickets %}
+               {% for openticket in opentickets %}
+            
+            \t\t{% if openticket.user != IdUser %}\t\t
+            \t\t\t\t<div class=\"answer right\">
+                           <div class=\"avatar\">
+                             <img src=\"https://bootdey.com/img/Content/avatar/avatar1.png\" alt=\"User name\">
+                             <div class=\"status online\"></div>
+                           </div>
+                           <div class=\"name\">Admin</div>
+                           <div class=\"text\">
+                             {{openticket.text}}
+                           </div>
+                          </div>
+            \t\t{% else %}
+            \t\t\t\t<div class=\"answer left\">
+            \t\t
+                           <div class=\"avatar\">
+                             <img src=\"https://bootdey.com/img/Content/avatar/avatar1.png\" alt=\"User name\">
+                             <div class=\"status online\"></div>
+                           </div>
+                           <div class=\"name\">{{ NameUser }}</div>
+                           <div class=\"text\">
+                             {{openticket.text}}
+                           </div>
+                          </div>
+            \t\t{% endif %}
+            \t{% endfor %}
 
-\t\t{% if openticket.name == \"admin@troubleshooting.com\" %}\t\t
-\t\t\t\t<div class=\"answer right\">
-\t\t{% else %}
-\t\t\t\t<div class=\"answer left\">
-\t\t{% endif %}
-               <div class=\"avatar\">
-                 <img src=\"https://bootdey.com/img/Content/avatar/avatar1.png\" alt=\"User name\">
-                 <div class=\"status offline\"></div>
-               </div>
-               <div class=\"name\">{{ openticket.name }}</div>
-               <div class=\"text\">
-                 {{openticket.text}}
-               </div>
-              </div>
-\t\t{% endfor %}
 
 
 
